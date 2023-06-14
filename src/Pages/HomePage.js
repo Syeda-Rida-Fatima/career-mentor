@@ -7,7 +7,7 @@ import Section1 from '../components/Navbar/Section1';
 import Section2 from '../components/Navbar/Section2';
 import Survey from '../components/Survey';
 import SurveyPage from './SurveyPage';
-import Profile from '../components/Profile';
+
 
 
 export const questions = [
@@ -755,7 +755,7 @@ function HomePage() {
             <TwoColumnSection />
             <BlogSection />
             <LastSection />
-            <Profile />
+
         </div>
     );
 }

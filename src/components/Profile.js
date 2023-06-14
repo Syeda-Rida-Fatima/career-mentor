@@ -3,7 +3,7 @@ import React from 'react';
 const Profile = () => {
     return (
         <div>
-            <SfNav
+            <Nav
                 showProfile={true}
                 profilePicture='https://i.pinimg.com/736x/7f/79/6d/7f796d57218d9cd81a92d9e6e8e51ce4--free-avatars-online-profile.jpg'
                 profileMenu={[{ caption: "Profile", link: "profile" }, [{ caption: "Settings", link: "support" }, { caption: "Notifications", link: "notifications" }, { caption: "Privacy", link: "privacy" }], { caption: "Support", link: "support" }, { caption: 'Upgrade', link: "upgrade" }]}
@@ -37,5 +37,3 @@ const Profile = () => {
         </div>
     );
 };
-
-export default Profile;

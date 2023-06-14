@@ -34,7 +34,7 @@ const App = () => {
           <AboutPage />
         </Route>
         <Route path='/Navbar/BlogSection'>
-          <div className='mt-24 py-24'> <BlogPage /></div>
+          <div className='mt-24 '> <BlogPage /></div>
         </Route>
         <Route path='/Survey'>
           <SurveyPage questions={questions} />

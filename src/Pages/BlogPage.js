@@ -4,9 +4,9 @@ function BlogPage(props) {
 
 
     return (
-        <section className="py-16 bg-gray-100">
+        <section className="py-5 bg-gray-100">
             <div className="max-w-4xl mx-auto my-20">
-                <h2 className="text-8xl font-bold mb-8">Blogs...</h2>
+                <h2 className="text-8xl font-bold my-20">Blogs...</h2>
 
                 <div className="bg-white rounded m-6 shadow p-6 overflow-y-auto max-h-64">
                     <h3 className="text-lg font-bold mb-4">

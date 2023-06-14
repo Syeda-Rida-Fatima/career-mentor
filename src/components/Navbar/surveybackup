@@ -1,0 +1,67 @@
+import React, { useState } from 'react';
+
+const Survey = ({ questions }) => {
+    const [answers, setAnswers] = useState({});
+
+    const handleAnswer = (questionId, value) => {
+        setAnswers(prevAnswers => ({
+            ...prevAnswers,
+            [questionId]: value,
+        }));
+    };
+
+    const handleSubmit = () => {
+        // Calculate scores based on answers
+        const scores = {};
+        questions.forEach(question => {
+            const answer = answers[question.id];
+            if (answer) {
+                scores[question.id] = question.answerOptions[answer].score;
+            }
+        });
+
+        // Handle form submission, e.g., send scores to the server
+        console.log(scores);
+    };
+
+    return (
+        <div className="container mx-auto p-4">
+            <h1 className="text-2xl font-bold mb-4">MBTI and MI Survey</h1>
+            <form onSubmit={handleSubmit}>
+                {questions.map(question => (
+                    <div key={question.id} className="mb-4">
+                        <label className="block mb-2 font-bold" htmlFor={question.id}>
+                            {question.text}
+                        </label>
+                        <select
+                            id={question.id}
+                            className="w-full p-2 border border-gray-300 rounded"
+                            value={answers[question.id] || ''}
+                            onChange={e => handleAnswer(question.id, e.target.value)}
+                        >
+                            <option value="">Select an option</option>
+                            {question.answerOptions.map((option, index) => (
+                                <option key={index} value={index}>
+                                    {option.text}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                ))}
+
+                {/* Submit button */}
+                <button
+                    type="submit"
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                >
+                    Submit
+                </button>
+            </form>
+        </div>
+    );
+};
+
+
+
+
+export default Survey;

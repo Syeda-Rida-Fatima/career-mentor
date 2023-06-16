@@ -1,16 +1,4 @@
-import React from 'react';
-import Navbar from '../components/Navbar/Navbar';
-import TwoColumnSection from '../components/Navbar/TwoColumnSection';
-import BlogSection from '../components/Navbar/BlogSection';
-import LastSection from '../components/Navbar/LastSection';
-import Section1 from '../components/Navbar/Section1';
-import Section2 from '../components/Navbar/Section2';
-// import Survey from '../components/Survey';
-// import SurveyPage from './SurveyPage';
-
-
-
-export const questions = [
+questions = [
     //I/E
     {
         id: 'mbti-I/E-question1',
@@ -745,20 +733,3 @@ export const questions = [
 
     // Add more questions here...
 ];
-
-
-function HomePage() {
-    return (
-        <div>
-            <Navbar />
-            <Section2 />
-            <Section1 />
-            <TwoColumnSection />
-            <BlogSection />
-            <LastSection />
-
-        </div>
-    );
-}
-
-export default HomePage;

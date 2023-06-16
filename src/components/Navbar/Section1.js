@@ -2,6 +2,7 @@ import React from 'react';
 import A1 from '../../images/about1.svg';
 import A2 from '../../images/about2.svg';
 import A3 from '../../images/about3.jpg';
+import { BaseRouter } from '@react-navigation/native';
 function Section1() {
 
     return (
@@ -15,7 +16,7 @@ function Section1() {
                     />
                     <div className="text-center mt-4">
                         <h3 className="text-lg font-bold">Card 1</h3>
-                        <p>assess yourself</p>
+                        <p>Assess Yourself</p>
                     </div>
                 </div>
                 <div className="bg-white p-4 rounded shadow hover:shadow-lg">
@@ -26,7 +27,8 @@ function Section1() {
                     />
                     <div className="text-center mt-4">
                         <h3 className="text-lg font-bold">Card 2</h3>
-                        <p>choose your career rightly
+                        <p>Choose Your
+                            Career Rightly
 
                         </p>
                     </div>
@@ -39,7 +41,7 @@ function Section1() {
                     />
                     <div className="text-center mt-4">
                         <h3 className="text-lg font-bold">Card 3</h3>
-                        <p>check your personality traits</p>
+                        <p>Check Your Personality Traits</p>
                     </div>
                 </div>
             </div>

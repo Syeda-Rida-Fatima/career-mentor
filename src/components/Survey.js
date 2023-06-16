@@ -33,9 +33,22 @@ const Survey = ({ questions }) => {
 
     const isAllQuestionsAnswered = Object.keys(answers).length === questions.length;
 
+    const unansweredQuestions = questions
+        .filter((question) => !answers.hasOwnProperty(question.id))
+        .map((question, index) => index + 1);
+
     return (
-        <div className="container mx-auto p-4">
-            <h1 className="text-2xl mt-4 font-bold mb-4">AI BASED CAREER MENTOR</h1>
+        <div className="container mx-auto p-4 mt-40">
+
+            <h1 className="text-4xl font-bold mb-12">AI BASED CAREER MENTOR</h1>
+            <div className="bg-purple-200 p-4  rounded-lg mb-8">
+                <h1 className='text-2xl font-bold text-black-500'>Note: </h1>
+                <ul><li>Please choose the answer that best describes you</li>
+                    <li>It is advised not to spend much time on choosing the right option.</li>
+                    <li>All information will be used solely for educational and research purposes.</li>
+                    <li> We will NOT, in any circumstances, share your information with other individuals or organizations. </li>
+                </ul>
+            </div>
             <div className="flex">
                 <button
                     type="submit"
@@ -98,10 +111,16 @@ const Survey = ({ questions }) => {
                 >
                     Submit
                 </button>
+
+                {/* Display unanswered question numbers */}
+                {!isAllQuestionsAnswered && (
+                    <p className="text-red-500 mt-4">
+                        Please answer the following question(s): {unansweredQuestions.join(', ')}
+                    </p>
+                )}
             </form>
         </div>
     );
 };
 
 export default Survey;
-

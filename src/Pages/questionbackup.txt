@@ -4,8 +4,8 @@ questions = [
         id: 'mbti-I/E-question1',
         text: '. Are you more inclined to be:',
         answerOptions: [
-            { text: 'easy to approach', score: 1 },
-            { text: 'somewhat reserved', score: 0 },
+            { text: 'easy to approach', score: 0 },
+            { text: 'somewhat reserved', score: 1 },
         ],
     },
 
@@ -13,8 +13,8 @@ questions = [
     //     id: 'mi-question2',
     //     text: 'I generally make : ',
     //     answerOptions: [
-    //       { text: 'rational decisions', score: 1 },
-    //       { text: 'emotional decisions', score: 0 },
+    //       { text: 'rational decisions', score: 0 },
+    //       { text: 'emotional decisions', score: 1 },
     //     ],
     //   },
 
@@ -22,8 +22,8 @@ questions = [
         id: 'mbti-I/E-question2',
         text: 'At a party do you:',
         answerOptions: [
-            { text: 'Interact with many, including strangers', score: 1 },
-            { text: '. Interact with a few, known to you', score: 0 },
+            { text: 'Interact with many, including strangers', score: 0 },
+            { text: '. Interact with a few, known to you', score: 1 },
         ],
     },
 
@@ -31,8 +31,8 @@ questions = [
         id: 'mbti-I/E-question3',
         text: 'In phone calls do you:',
         answerOptions: [
-            { text: 'Rarely question that it will all be said', score: 1 },
-            { text: '. Rehearse what you’ll say', score: 0 },
+            { text: 'Rarely question that it will all be said', score: 0 },
+            { text: '. Rehearse what you’ll say', score: 1 },
         ],
     },
 
@@ -40,8 +40,8 @@ questions = [
         id: 'mbti-I/E-question4',
         text: 'Does new and non-routine interaction with others:',
         answerOptions: [
-            { text: 'stimulate and energize you', score: 1 },
-            { text: ' tax your reserves', score: 0 },
+            { text: 'stimulate and energize you', score: 0 },
+            { text: ' tax your reserves', score: 1 },
         ],
     },
 
@@ -49,8 +49,8 @@ questions = [
         id: 'mbti-I/E-question5',
         text: '. Do you prefer:',
         answerOptions: [
-            { text: ' many friends with brief contact', score: 1 },
-            { text: ' a few friends with more lengthy contact ', score: 0 },
+            { text: ' many friends with brief contact', score: 0 },
+            { text: ' a few friends with more lengthy contact ', score: 1 },
         ],
     },
 
@@ -58,8 +58,8 @@ questions = [
         id: 'mbti-I/E-question6',
         text: 'In your social groups you:',
         answerOptions: [
-            { text: 'keep abreast of others happenings.', score: 1 },
-            { text: ' get behind on the news. ', score: 0 },
+            { text: 'keep abreast of others happenings.', score: 0 },
+            { text: ' get behind on the news. ', score: 1 },
         ],
     },
 
@@ -67,8 +67,8 @@ questions = [
         id: 'mbti-I/E-question7',
         text: ' Do you:',
         answerOptions: [
-            { text: 'speak easily and at length with strangers.', score: 1 },
-            { text: ' find little to say to strangers. ', score: 0 },
+            { text: 'speak easily and at length with strangers.', score: 0 },
+            { text: ' find little to say to strangers. ', score: 1 },
         ],
     },
 
@@ -77,8 +77,8 @@ questions = [
         id: 'mbti-S/N-question8',
         text: ' Are you more attracted to:                                                                                                                                                    ',
         answerOptions: [
-            { text: ' Sensible people', score: 1 },
-            { text: 'Imaginative people', score: 0 },
+            { text: ' Sensible people', score: 0 },
+            { text: 'Imaginative people', score: 1 },
         ],
     },
 
@@ -86,8 +86,8 @@ questions = [
         id: 'mbti-S/N-question9',
         text: ' Are you more interested in:',
         answerOptions: [
-            { text: ' What is actual', score: 1 },
-            { text: 'What is possible', score: 0 },
+            { text: ' What is actual', score: 0 },
+            { text: 'What is possible', score: 1 },
         ],
     },
 
@@ -96,8 +96,8 @@ questions = [
         id: 'mbti-S/N-question10',
         text: ' Writers should:',
         answerOptions: [
-            { text: 'Say what they mean and mean what they say', score: 1 },
-            { text: 'Express things more by use of analogy', score: 0 },
+            { text: 'Say what they mean and mean what they say', score: 0 },
+            { text: 'Express things more by use of analogy', score: 1 },
         ],
     },
 
@@ -105,16 +105,16 @@ questions = [
         id: 'mbti-S/N-question11',
         text: '. Facts:',
         answerOptions: [
-            { text: 'Speak for themselves', score: 1 },
-            { text: 'Illustrate principles', score: 0 },
+            { text: 'Speak for themselves', score: 0 },
+            { text: 'Illustrate principles', score: 1 },
         ],
     },
     {
         id: 'mbti-S/N-question12',
         text: '. Are visionaries:',
         answerOptions: [
-            { text: 'somewhat annoying', score: 1 },
-            { text: 'rather fascinating', score: 0 },
+            { text: 'somewhat annoying', score: 0 },
+            { text: 'rather fascinating', score: 1 },
         ],
     },
 
@@ -122,8 +122,8 @@ questions = [
         id: 'mbti-S/N-question13',
         text: 'Children often do not:',
         answerOptions: [
-            { text: 'make themselves useful enough.', score: 1 },
-            { text: 'exercise their fantasy enough.', score: 0 },
+            { text: 'make themselves useful enough.', score: 0 },
+            { text: 'exercise their fantasy enough.', score: 1 },
         ],
     },
 
@@ -131,8 +131,8 @@ questions = [
         id: 'mbti-S/N-question14',
         text: '. You are more likely to:',
         answerOptions: [
-            { text: 'see how others are useful.', score: 1 },
-            { text: 'see how others see.', score: 0 },
+            { text: 'see how others are useful.', score: 0 },
+            { text: 'see how others see.', score: 1 },
         ],
     },
 
@@ -141,8 +141,8 @@ questions = [
         id: 'mbti-J/P-question15',
         text: 'Do you prefer to work:',
         answerOptions: [
-            { text: 'To deadlines', score: 1 },
-            { text: 'Just “whenever”', score: 0 },
+            { text: 'To deadlines', score: 0 },
+            { text: 'Just “whenever”', score: 1 },
         ],
     },
 
@@ -150,8 +150,8 @@ questions = [
         id: 'mbti-J/P-question16',
         text: 'Does it bother you more having things:',
         answerOptions: [
-            { text: 'Incomplete', score: 1 },
-            { text: 'Completed', score: 0 },
+            { text: 'Incomplete', score: 0 },
+            { text: 'Completed', score: 1 },
         ],
     },
 
@@ -159,8 +159,8 @@ questions = [
         id: 'mbti-J/P-question17',
         text: 'Should one usually let events occur:',
         answerOptions: [
-            { text: 'by careful selection and choice', score: 1 },
-            { text: 'randomly and by chance', score: 0 },
+            { text: 'by careful selection and choice', score: 0 },
+            { text: 'randomly and by chance', score: 1 },
         ],
     },
 
@@ -168,8 +168,8 @@ questions = [
         id: 'mbti-J/P-question18',
         text: ' Do you more often prefer the',
         answerOptions: [
-            { text: 'final and unalterable statement', score: 1 },
-            { text: 'tentative and preliminary statement', score: 0 },
+            { text: 'final and unalterable statement', score: 0 },
+            { text: 'tentative and preliminary statement', score: 1 },
         ],
     },
 
@@ -177,8 +177,8 @@ questions = [
         id: 'mbti-J/P-question19',
         text: ' In relationships should most things be:',
         answerOptions: [
-            { text: 'Re-negotiable', score: 1 },
-            { text: ' random and circumstantial', score: 0 },
+            { text: 'Re-negotiable', score: 0 },
+            { text: ' random and circumstantial', score: 1 },
         ],
     },
 
@@ -186,8 +186,8 @@ questions = [
         id: 'mbti-J/P-question20',
         text: 'You are more comfortable with work that is:',
         answerOptions: [
-            { text: 'contracted.', score: 1 },
-            { text: ' done on a casual basis.', score: 0 },
+            { text: 'contracted.', score: 0 },
+            { text: ' done on a casual basis.', score: 1 },
         ],
     },
 
@@ -195,8 +195,8 @@ questions = [
         id: 'mbti-J/P-question21',
         text: 'You tend to be more: ',
         answerOptions: [
-            { text: ' deliberate than spontaneous.', score: 1 },
-            { text: 'spontaneous than deliberate.', score: 0 },
+            { text: ' deliberate than spontaneous.', score: 0 },
+            { text: 'spontaneous than deliberate.', score: 1 },
         ],
     },
 
@@ -205,8 +205,8 @@ questions = [
         id: 'mbti-T/F-question22',
         text: 'In judging others are you more swayed by:',
         answerOptions: [
-            { text: 'Laws than circumstances', score: 1 },
-            { text: 'Circumstances than laws', score: 0 },
+            { text: 'Laws than circumstances', score: 0 },
+            { text: 'Circumstances than laws', score: 1 },
         ],
     },
 
@@ -214,8 +214,8 @@ questions = [
         id: 'mbti-T/F-question23',
         text: '. Are you more often:',
         answerOptions: [
-            { text: ' a cool-headed person', score: 1 },
-            { text: ' a warm-hearted person', score: 0 },
+            { text: ' a cool-headed person', score: 0 },
+            { text: ' a warm-hearted person', score: 1 },
         ],
     },
 
@@ -223,8 +223,8 @@ questions = [
         id: 'mbti-T/F-question24',
         text: '4. Is it worse to be:',
         answerOptions: [
-            { text: 'Unjust', score: 1 },
-            { text: ' Merciless', score: 0 },
+            { text: 'Unjust', score: 0 },
+            { text: ' Merciless', score: 1 },
         ],
     },
 
@@ -232,8 +232,8 @@ questions = [
         id: 'mbti-T/F-question25',
         text: 'In making decisions do you feel more comfortable with:',
         answerOptions: [
-            { text: 'Standards', score: 1 },
-            { text: 'Feelings', score: 0 },
+            { text: 'Standards', score: 0 },
+            { text: 'Feelings', score: 1 },
         ],
     },
 
@@ -241,8 +241,8 @@ questions = [
         id: 'mbti-T/F-question26',
         text: '6. Which rules you more:',
         answerOptions: [
-            { text: 'your head', score: 1 },
-            { text: ' your heart', score: 0 },
+            { text: 'your head', score: 0 },
+            { text: ' your heart', score: 1 },
         ],
     },
 
@@ -250,8 +250,8 @@ questions = [
         id: 'mbti-T/F-question27',
         text: '.You are inclined more to be:',
         answerOptions: [
-            { text: 'Fair-minded.', score: 1 },
-            { text: ' Sympathetic.', score: 0 },
+            { text: 'Fair-minded.', score: 0 },
+            { text: ' Sympathetic.', score: 1 },
         ],
     },
 
@@ -259,8 +259,8 @@ questions = [
         id: 'mbti-T/F-question28',
         text: 'In approaching others, your inclination is to be somewhat:',
         answerOptions: [
-            { text: ' Objective.', score: 1 },
-            { text: 'personal', score: 0 },
+            { text: ' Objective.', score: 0 },
+            { text: 'personal', score: 1 },
         ],
     },
 

@@ -13,6 +13,25 @@ import Section2 from '../components/Navbar/Section2';
 export const questions = [
     //I/E
     {
+        id: 'self-question1',
+        text: 'Select your gender:',
+        answerOptions: [
+            { text: 'Male', score: 0 },
+            { text: 'Female', score: 1 },
+
+        ],
+    },
+    {
+        id: 'self-question2',
+        text: 'Select your income group:',
+        answerOptions: [
+            { text: 'Lower class', score: 0 },
+            { text: 'Middle class', score: 1 },
+            { text: 'Upper class', score: 2 },
+            { text: 'Upper Middle class', score: 3 },
+        ],
+    },
+    {
         id: 'mbti-I/E-question1',
         text: '. Are you more inclined to be:',
         answerOptions: [

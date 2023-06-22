@@ -1,5 +1,5 @@
 import React from 'react';
-import Survey from '../components/Survey';
+import Survey from '../components/Questionnaire/Survey';
 function SurveyPage({ questions }) {
     return (
         <div>

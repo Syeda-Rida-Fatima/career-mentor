@@ -1,5 +1,5 @@
 import React from 'react';
-import Links from './Links';
+import Link from '../Links';
 const Login = () => {
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -27,13 +27,13 @@ const Login = () => {
                 </div>
                 <p className="text-blue-500 mb-4">
                     Want to create an account?{' '}
-                    <Links
+                    <Link
                         key="CREATE-ACC"
                         to="/CreateAccount"
                         className="font-bold"
                     >
                         CREATE ACCOUNT
-                    </Links>
+                    </Link>
                 </p>
                 <p className="text-gray-700 mb-8">
                     By clicking, you may agree to our{' '}
@@ -42,13 +42,13 @@ const Login = () => {
                     </a>
                 </p>
 
-                <Links
+                <Link
                     key="LOGIN"
                     to="/"
                     className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600"
                 >
                     LOGIN
-                </Links>
+                </Link>
             </div>
         </div>
     );

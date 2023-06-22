@@ -7,7 +7,7 @@ function Navbar() {
         { label: 'About Us', path: '/Navbar/TwoColumnSection' },
         { label: 'Blogs', path: '/Navbar/BlogSection' },
         { label: 'Contact Us', path: '/Navbar/LastSection' },
-        { label: 'profile', path: '/Profile' }
+        // { label: 'profile', path: '/Profile' }
     ];
     const RightLinks = [
         { label: 'Login', path: '/Login' },

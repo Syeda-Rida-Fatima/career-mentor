@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Link from '../Links';
 const Survey = ({ questions }) => {
     const [answers, setAnswers] = useState({});
     const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
@@ -104,14 +104,20 @@ const Survey = ({ questions }) => {
                 ))}
 
                 {/* Submit button */}
-                <button
+                <Link
+                    key="submit"
+                    to='/History'
+                > {<button
                     type="submit"
-                    disabled={!isAllQuestionsAnswered}
+                    //disabled={!isAllQuestionsAnswered}
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 >
                     Submit
-                </button>
 
+
+
+                </button>}
+                </Link>
                 {/* Display unanswered question numbers */}
                 {!isAllQuestionsAnswered && (
                     <p className="text-red-500 mt-4">

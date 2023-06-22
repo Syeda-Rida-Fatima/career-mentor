@@ -10,7 +10,7 @@ import LoginPage from './Pages/LoginPage';
 import CreateAccountPage from './Pages/CreateAccountPage';
 import ContactPage from './Pages/ContactPage';
 import SurveyPage from './Pages/SurveyPage';
-
+import ResultPage from './Pages/ResultPage';
 const App = () => {
 
 
@@ -39,7 +39,9 @@ const App = () => {
         <Route path='/Survey'>
           <SurveyPage questions={questions} />
         </Route>
-
+        <Route path='/History'>
+          <ResultPage />
+        </Route>
       </div>
     </div>
 

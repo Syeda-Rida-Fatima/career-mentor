@@ -1,5 +1,5 @@
 import React from 'react';
-import CreateAccount from '../components/CreateAcc';
+import CreateAccount from '../components/User/CreateAcc';
 function CreateAccountPage(props) {
     return (
         <div>

@@ -2,7 +2,7 @@ import React from 'react';
 import A1 from '../../images/about1.svg';
 import A2 from '../../images/about2.svg';
 import A3 from '../../images/about3.jpg';
-import { BaseRouter } from '@react-navigation/native';
+
 function Section1() {
 
     return (

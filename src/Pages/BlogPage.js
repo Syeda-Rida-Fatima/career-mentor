@@ -4,9 +4,10 @@ function BlogPage(props) {
 
 
     return (
-        <section className="py-5 bg-gray-100">
+        <section className="flex  flex-col  items-center justify-center min-h-screen bg-gradient-to-r from-purple-300 via-pink-100 to-purple-100 bg-scroll animate-gradient ">
             <div className="max-w-4xl mx-auto my-20">
-                <h2 className="text-8xl font-bold my-20">Blogs...</h2>
+                <p className=" font-bold ml-2 mt-20">Hey, Read these </p>
+                <h2 className="text-8xl font-bold mb-20">Blogs</h2>
 
                 <div className="bg-white rounded m-6 shadow p-6 overflow-y-auto max-h-64">
                     <h3 className="text-lg font-bold mb-4">

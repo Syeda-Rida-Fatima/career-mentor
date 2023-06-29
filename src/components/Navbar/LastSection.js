@@ -4,7 +4,7 @@ import Logo from '../../images/logo.png';
 
 function LastSection(props) {
     return (
-        <section className="bg-gray-900 text-white py-10 px-20">
+        <section className="bg-gray-900 text-white py-10 px-20 ">
             <div className="max-w-4xl mx-auto flex flex-col items-center justify-center">
                 <div className="flex items-center mb-4">
                     <div className="text-4xl font-bold">CAREER MENTOR</div>

@@ -11,12 +11,14 @@ import CreateAccountPage from './Pages/CreateAccountPage';
 import ContactPage from './Pages/ContactPage';
 import SurveyPage from './Pages/SurveyPage';
 import ResultPage from './Pages/ResultPage';
+import LastSection from './components/Navbar/LastSection';
 const App = () => {
 
 
   return (
     <div>
       <Navbar />
+
 
       <div>
         <Route path='/'>
@@ -34,7 +36,8 @@ const App = () => {
           <AboutPage />
         </Route>
         <Route path='/Navbar/BlogSection'>
-          <div className='mt-24 '> <BlogPage /></div>
+          <div>
+            <BlogPage /></div>
         </Route>
         <Route path='/Survey'>
           <SurveyPage questions={questions} />
@@ -43,6 +46,7 @@ const App = () => {
           <ResultPage />
         </Route>
       </div>
+      <LastSection />
     </div>
 
   )

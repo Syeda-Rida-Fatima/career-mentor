@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from '../Links';
+import axios from 'axios';
 const Survey = ({ questions }) => {
     const [answers, setAnswers] = useState({});
     const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
@@ -11,21 +12,38 @@ const Survey = ({ questions }) => {
         }));
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // Calculate scores based on answers
         const scores = {};
         questions.forEach((question) => {
             const answer = answers[question.id];
             if (answer) {
                 scores[question.id] = question.answerOptions[answer].score;
+            } else {
+                scores[question.id] = 0;
             }
-        });
 
-        // Handle form submission, e.g., send scores to the server
-        console.log(scores);
+        });
+        console.log({ scores })
+
+        // try {
+        //     const response = await axios.post('http://127.0.0.1:8000/api/scores/', {
+        //         field1: 'f8d71b3cf00752d81a847dbb99153859f8576c74a06ec8a9df681f4518b41ecb',
+        //         field2: 'alam',
+        //         score: { scores },
+        //     }, {
+        //         headers: {
+        //             Authorization: 'Token 75d0c2091cf7e068f4d44824cda9dbda676e2c8c448429e227b0af9c7ad5a26e',
+        //         },
+        //     });
+
+        //     console.log(response.data); // Handle success response
+        // } catch (error) {
+        //     console.error(error); // Handle error response
+        // }
     };
+
 
     const handleOptionClick = (questionId, optionIndex) => {
         handleAnswer(questionId, optionIndex);
@@ -104,20 +122,21 @@ const Survey = ({ questions }) => {
                 ))}
 
                 {/* Submit button */}
-                <Link
-                    key="submit"
-                    to='/History'
-                > {<button
+                {/* <Link ></Link>
+                key="submit"
+                to='/History'
+                                    >*/ }
+                <button
                     type="submit"
-                    //disabled={!isAllQuestionsAnswered}
+                    //   disabled={!isAllQuestionsAnswered}
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 >
                     Submit
 
 
 
-                </button>}
-                </Link>
+                </button>
+
                 {/* Display unanswered question numbers */}
                 {!isAllQuestionsAnswered && (
                     <p className="text-red-500 mt-4">

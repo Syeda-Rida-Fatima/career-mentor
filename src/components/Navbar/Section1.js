@@ -6,7 +6,7 @@ import A3 from '../../images/about3.jpg';
 function Section1() {
 
     return (
-        <section className="flex justify-center py-8">
+        <section className="flex justify-center py-8 mb-24">
             <div className="flex flex-column w-35 space-x-8">
                 <div className="bg-white p-4 rounded shadow hover:shadow-lg">
                     <img
@@ -28,7 +28,7 @@ function Section1() {
                     <div className="text-center mt-4">
                         <h3 className="text-lg font-bold">Card 2</h3>
                         <p>Choose Your
-                            Career Rightly
+                            Career
 
                         </p>
                     </div>
@@ -41,7 +41,7 @@ function Section1() {
                     />
                     <div className="text-center mt-4">
                         <h3 className="text-lg font-bold">Card 3</h3>
-                        <p>Check Your Personality Traits</p>
+                        <p>Check Your Personality</p>
                     </div>
                 </div>
             </div>

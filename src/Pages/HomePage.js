@@ -16,8 +16,9 @@ export const questions = [
         id: 'self-question1',
         text: 'Select your gender:',
         answerOptions: [
-            { text: 'Male', score: 0 },
-            { text: 'Female', score: 1 },
+
+            { text: 'Female', score: 0 },
+            { text: 'Male', score: 1 },
 
         ],
     },
@@ -39,15 +40,6 @@ export const questions = [
             { text: 'somewhat reserved', score: 1 },
         ],
     },
-
-    // {
-    //     id: 'mi-question2',
-    //     text: 'I generally make : ',
-    //     answerOptions: [
-    //       { text: 'rational decisions', score: 0 },
-    //       { text: 'emotional decisions', score: 1 },
-    //     ],
-    //   },
 
     {
         id: 'mbti-I/E-question2',
@@ -372,7 +364,7 @@ export const questions = [
     },
 
     {
-        id: 'mi-7',
+        id: 'mi-question7',
         text: 'I am observant. I often see things that others miss.',
         answerOptions: [
             { text: '1', score: 1 },

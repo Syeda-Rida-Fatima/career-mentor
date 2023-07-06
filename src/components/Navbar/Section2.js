@@ -34,15 +34,15 @@ function Section2() {
                         />
                     </div>
 
-                    <div className='overlay-content'>
+                    <div className='overlay-content shadow-lg shadow-black-900'>
 
-                        <div className="ml-20 mt-12 mr-20 mb-12">
+                        <div className="ml-20 mt-12 mr-20 mb-12 ">
                             <h1 className="text-2xl text-pink-700 font-bold mb-4">Welcome to the Test</h1>
-                            <p className="mb-8">Prepare yourself and get the best Career choices now!</p>
+                            <p className="mb-8 font-bold">Prepare yourself and get the best Career choices now!</p>
 
                             <Links
                                 key="start-test"
-                                to="/Survey"
+                                to="/Login"
                                 className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded mt-4"
                             >
                                 Start Test

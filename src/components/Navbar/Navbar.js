@@ -53,10 +53,10 @@ function Navbar() {
                     className="ml-2 h-8"
                 />
             </div>
-            <div>
+            <div className='font-bold '>
                 {renderedCenterLinks}
             </div>
-            <div>
+            <div className='font-bold '>
                 {renderedRightLinks}
             </div>
         </nav>

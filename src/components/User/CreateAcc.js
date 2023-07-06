@@ -111,9 +111,12 @@ const CreateAccount = () => {
                             className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:border-purple-500"
                         />
                     </div>
-                    <button type="submit" className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600">
-                        CREATE ACCOUNT
-                    </button>
+                    <Link key="Create-Acc" to="/" className="font-bold">
+                        <button type="submit" className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600">
+                            CREATE ACCOUNT
+                        </button>
+                    </Link>
+
                     <p className="text-blue-500 mt-4">
                         Already have an account?{' '}
                         <Link key="LOGIN" to="/Login" className="font-bold">

@@ -145,23 +145,24 @@ function History() {
 
     return (
         <div className="container mx-auto p-4 mt-40">
-            <h1 className="text-4xl font-bold mb-12">AI BASED CAREER MENTOR</h1>
-            <h2 className="text-2xl font-bold mb-8">Hello, I'm result</h2>
+            <h1 className="text-4xl text-pink-500 font-bold mb-12">AI BASED CAREER MENTOR</h1>
+
             <div>
                 {barsData.map((bar, index) => (
                     <div key={index} className="mb-4">
                         <div className="flex items-center">
                             <div className="w-48">{bar.label}</div>
-                            <div className="bg-gray-200 h-4 flex-grow ml-4">
+                            <div className="bg-purple-100 h-4 flex-grow ml-4">
                                 <div
-                                    className="bg-blue-500 h-full"
+                                    className="bg-pink-500 h-full"
                                     style={{ width: `${bar.percentage}%` }}
                                 ></div>
                             </div>
                             <div className="ml-4">{bar.percentage}%</div>
                         </div>
                     </div>
-                ))}
+                ))}<h1 className="text-pink-500 text-2xl font-bold mt-20">Attention:</h1>
+                <h2 className="text-purple-800 my-10"> Please note that the MBTI-MITestCareerTracker app is intended for informational and exploratory purposes only. The career recommendations provided are based on your MBTI and MI test results, but they should not be considered as definitive or absolute. It is important to remember that career choices are multifaceted and depend on various factors such as personal preferences, skills, values, and external circumstances. The app aims to provide insights and suggestions to assist you in your career exploration, but the final decision should be based on thorough research, self-reflection, and consultation with career professionals.</h2>
             </div>
             <div className="container mx-auto p-4 mt-40">
                 <h1 className="text-4xl font-bold mb-12">AI BASED CAREER MENTOR</h1>
@@ -232,7 +233,7 @@ function History() {
                     })}
                 </div>
             </div>
-        </div>
+        </div >
 
     );
 }

@@ -3,15 +3,18 @@ import Link from '../Links';
 import axios from 'axios';
 const Survey = ({ questions }) => {
     const [answers, setAnswers] = useState({});
-    const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
-
+    // const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+    const [selectedButton, setSelectedButton] = useState(null);
+    const [query, setQuery] = useState(null);
     const handleAnswer = (questionId, value) => {
         setAnswers((prevAnswers) => ({
             ...prevAnswers,
             [questionId]: value,
         }));
     };
-
+    const handleButtonSelection = (value) => {
+        setSelectedButton(value);
+    };
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -25,6 +28,7 @@ const Survey = ({ questions }) => {
             }
 
         });
+        scores['button'] = selectedButton
         console.log({ scores })
 
         // try {
@@ -38,7 +42,7 @@ const Survey = ({ questions }) => {
         //         },
         //     });
 
-        //     console.log(response.data); // Handle success response
+        //     setQuery(response.data); // Handle success response
         // } catch (error) {
         //     console.error(error); // Handle error response
         // }
@@ -69,24 +73,30 @@ const Survey = ({ questions }) => {
             </div>
             <div className="flex">
                 <button
-                    type="submit"
-                    className="bg-purple-500 hover:bg-purple-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded"
+                    type="button"
+                    onClick={() => handleButtonSelection(0.0)}
+                    className={`bg-purple-500 hover:bg-purple-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded ${selectedButton === 0.0 ? 'bg-purple-700' : ''
+                        }`}
                 >
                     Medical
                 </button>
 
                 <button
-                    type="submit"
-                    className="bg-purple-500 hover:bg-purple-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded"
+                    type="button"
+                    onClick={() => handleButtonSelection(1.0)}
+                    className={`bg-purple-500 hover:bg-purple-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded ${selectedButton === 1.0 ? 'bg-purple-700' : ''
+                        }`}
                 >
                     Engineering
                 </button>
 
                 <button
-                    type="submit"
-                    className="bg-purple-500 hover:bg-purple-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded"
+                    type="button"
+                    onClick={() => handleButtonSelection(2.0)}
+                    className={`bg-purple-500 hover:bg-purple-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded ${selectedButton === 2.0 ? 'bg-purple-700' : ''
+                        }`}
                 >
-                    Both
+                    Either
                 </button>
             </div>
             <form onSubmit={handleSubmit}>
@@ -121,20 +131,21 @@ const Survey = ({ questions }) => {
                     </div>
                 ))}
 
-              //Submit button
-                /* <Link
+
+                <Link
                     key="submit"
                     to='/History'  >
                     <button
                         type="submit"
-                        disabled={!isAllQuestionsAnswered}
+                        // disabled={!isAllQuestionsAnswered}
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     >
                         Submit
 
 
 
-                    </button></Link>
+                    </button>
+                </Link>
 
                 {/* Display unanswered question numbers */}
                 {!isAllQuestionsAnswered && (

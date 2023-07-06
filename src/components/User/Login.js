@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Link from "../Links";
+import Links from "../Links";
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -63,9 +63,9 @@ const Login = () => {
                     </div>
                     <p className="text-blue-500 mb-4">
                         Want to create an account?{' '}
-                        <Link key="CREATE-ACC" to="/CreateAccount" className="font-bold">
+                        <Links key="CREATE-ACC" to="/CreateAccount" className="font-bold">
                             CREATE ACCOUNT
-                        </Link>
+                        </Links>
                     </p>
                     <p className="text-gray-700 mb-8">
                         By clicking, you may agree to our{' '}
@@ -74,12 +74,20 @@ const Login = () => {
                         </a>
                     </p>
 
-                    <button
-                        type="submit"
+
+                    <Links
+                        key="Login"
+                        to="/Survey"
+
                         className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600"
                     >
-                        LOGIN
-                    </button>
+                        <button
+                            type="submit"
+
+                        >
+                            LOGIN
+                        </button>
+                    </Links>
                 </form>
             </div>
         </div>

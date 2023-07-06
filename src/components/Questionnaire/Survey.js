@@ -121,21 +121,20 @@ const Survey = ({ questions }) => {
                     </div>
                 ))}
 
-                {/* Submit button */}
-                {/* <Link ></Link>
-                key="submit"
-                to='/History'
-                                    >*/ }
-                <button
-                    type="submit"
-                    //   disabled={!isAllQuestionsAnswered}
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                >
-                    Submit
+              //Submit button
+                /* <Link
+                    key="submit"
+                    to='/History'  >
+                    <button
+                        type="submit"
+                        disabled={!isAllQuestionsAnswered}
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    >
+                        Submit
 
 
 
-                </button>
+                    </button></Link>
 
                 {/* Display unanswered question numbers */}
                 {!isAllQuestionsAnswered && (

@@ -12,6 +12,7 @@ import ContactPage from './Pages/ContactPage';
 import SurveyPage from './Pages/SurveyPage';
 import ResultPage from './Pages/ResultPage';
 import LastSection from './components/Navbar/LastSection';
+import Records from './components/History/Records';
 const App = () => {
 
 
@@ -22,7 +23,8 @@ const App = () => {
 
       <div>
         <Route path='/'>
-          <HomePage /></Route>
+          <HomePage />
+        </Route>
         <Route path='/Login'>
           <LoginPage />
         </Route>
@@ -44,6 +46,9 @@ const App = () => {
         </Route>
         <Route path='/History'>
           <ResultPage />
+        </Route>
+        <Route path='/Record'>
+          <Records />
         </Route>
       </div>
       <LastSection />

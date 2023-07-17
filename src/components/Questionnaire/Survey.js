@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
 import Link from '../Links';
 import axios from 'axios';
+import { tokenValue } from '../User/Login';
+let data = null;
+
+export const setSurveyData = (responseData) => {
+    data = responseData;
+};
+
+export const getSurveyData = () => {
+    return data;
+};
 const Survey = ({ questions }) => {
-    const [answers, setAnswers] = useState({});
+    const [Myanswers, setMyAnswers] = useState({});
     // const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
     const [selectedButton, setSelectedButton] = useState(null);
-    const [query, setQuery] = useState(null);
+
     const handleAnswer = (questionId, value) => {
-        setAnswers((prevAnswers) => ({
+        setMyAnswers((prevAnswers) => ({
             ...prevAnswers,
             [questionId]: value,
         }));
@@ -18,34 +28,111 @@ const Survey = ({ questions }) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const scores = {};
+        const answers = {};
         questions.forEach((question) => {
-            const answer = answers[question.id];
+            const answer = Myanswers[question.id];
             if (answer) {
-                scores[question.id] = question.answerOptions[answer].score;
+                answers[question.id] = question.answerOptions[answer].score;
             } else {
-                scores[question.id] = 0;
+                answers[question.id] = 0;
             }
 
         });
-        scores['button'] = selectedButton
-        console.log({ scores })
+        answers['options'] = selectedButton;
+        console.log({ answers })
 
-        // try {
-        //     const response = await axios.post('http://127.0.0.1:8000/api/scores/', {
-        //         field1: 'f8d71b3cf00752d81a847dbb99153859f8576c74a06ec8a9df681f4518b41ecb',
-        //         field2: 'alam',
-        //         score: { scores },
-        //     }, {
-        //         headers: {
-        //             Authorization: 'Token 75d0c2091cf7e068f4d44824cda9dbda676e2c8c448429e227b0af9c7ad5a26e',
-        //         },
-        //     });
 
-        //     setQuery(response.data); // Handle success response
-        // } catch (error) {
-        //     console.error(error); // Handle error response
-        // }
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/scores/', {
+                answers: {
+
+                    mbtiI_E_question1: 1,
+                    mbtiI_E_question2: 0,
+                    mbtiI_E_question3: 0,
+                    mbtiI_E_question4: 1,
+                    mbtiI_E_question5: 1,
+                    mbtiI_E_question6: 0,
+                    mbtiI_E_question7: 0,
+                    mbtiJ_P_question15: 1,
+                    mbtiJ_P_question16: 0,
+                    mbtiJ_P_question17: 0,
+                    mbtiJ_P_question18: 0,
+                    mbtiJ_P_question19: 1,
+                    mbtiJ_P_question20: 1,
+                    mbtiJ_P_question21: 1,
+                    mbtiS_N_question8: 1,
+                    mbtiS_N_question9: 1,
+                    mbtiS_N_question10: 0,
+                    mbtiS_N_question11: 1,
+                    mbtiS_N_question12: 1,
+                    mbtiS_N_question13: 1,
+                    mbtiS_N_question14: 1,
+                    mbtiT_F_question22: 1,
+                    mbtiT_F_question23: 0,
+                    mbtiT_F_question24: 0,
+                    mbtiT_F_question25: 0,
+                    mbtiT_F_question26: 1,
+                    mbtiT_F_question27: 1,
+                    mbtiT_F_question28: 1,
+                    mi_question1: 3,
+                    mi_question2: 5,
+                    mi_question3: 5,
+                    mi_question4: 5,
+                    mi_question5: 4,
+                    mi_question6: 3,
+                    mi_question7: 3,
+                    mi_question8: 3,
+                    mi_question9: 3,
+                    mi_question10: 3,
+                    mi_question11: 4,
+                    mi_question12: 5,
+                    mi_question13: 5,
+                    mi_question14: 4,
+                    mi_question15: 3,
+                    mi_question16: 3,
+                    mi_question17: 3,
+                    mi_question18: 2,
+                    mi_question19: 5,
+                    mi_question20: 5,
+                    mi_question21: 4,
+                    mi_question22: 3,
+                    mi_question23: 5,
+                    mi_question24: 4,
+                    mi_question25: 3,
+                    mi_question26: 2,
+                    mi_question27: 0,
+                    mi_question28: 5,
+                    mi_question29: 4,
+                    mi_question30: 4,
+                    mi_question31: 4,
+                    mi_question32: 3,
+                    mi_question33: 5,
+                    mi_question34: 4,
+                    mi_question35: 4,
+                    mi_question36: 4,
+                    options: 1,
+                    self_question1: 1,
+                    self_question2: 1,
+
+
+
+                }
+            }, {
+                headers: {
+                    Authorization: `Token ${tokenValue}`,
+                },
+
+            });
+
+            // Handle success response
+
+            const responseData = response.data;
+            setSurveyData(responseData);
+
+        }
+        catch (error) {
+            console.error(error); // Handle error response
+        }
     };
 
 
@@ -53,10 +140,10 @@ const Survey = ({ questions }) => {
         handleAnswer(questionId, optionIndex);
     };
 
-    const isAllQuestionsAnswered = Object.keys(answers).length === questions.length;
+    const isAllQuestionsAnswered = Object.keys(Myanswers).length === questions.length;
 
     const unansweredQuestions = questions
-        .filter((question) => !answers.hasOwnProperty(question.id))
+        .filter((question) => !Myanswers.hasOwnProperty(question.id))
         .map((question, index) => index + 1);
 
     return (
@@ -113,14 +200,14 @@ const Survey = ({ questions }) => {
                             {question.answerOptions.map((option, optionIndex) => (
                                 <label
                                     key={optionIndex}
-                                    className={`flex items-center mr-4 mb-2 ${answers[question.id] === optionIndex ? 'text-blue-500 font-bold' : ''
+                                    className={`flex items-center mr-4 mb-2 ${Myanswers[question.id] === optionIndex ? 'text-blue-500 font-bold' : ''
                                         }`}
                                 >
                                     <input
                                         type="radio"
                                         name={question.id}
                                         value={optionIndex}
-                                        checked={answers[question.id] === optionIndex}
+                                        checked={Myanswers[question.id] === optionIndex}
                                         onChange={() => handleOptionClick(question.id, optionIndex)}
                                         className="mr-2"
                                     />
@@ -137,7 +224,8 @@ const Survey = ({ questions }) => {
                     to='/History'  >
                     <button
                         type="submit"
-                        // disabled={!isAllQuestionsAnswered}
+                        onClick={handleSubmit}
+                        //  disabled={!isAllQuestionsAnswered}
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     >
                         Submit
@@ -157,5 +245,6 @@ const Survey = ({ questions }) => {
         </div>
     );
 };
+
 
 export default Survey;

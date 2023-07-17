@@ -1,30 +1,25 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Links from "../Links";
-let tokenValue = ''
-const Login = () => {
-    const [username, setusername] = useState('');
-    const [password, setPassword] = useState('');
 
-    const [loggedIn, setLoggedIn] = useState(false); // Track login state
+const Login = () => {
+    const [user, setUser] = useState('');
+    const [password, setPassword] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/login/', {
-                username: username,
-                password: password,
+                user,
+                password,
             });
+
             // Handle success response
             console.log(response.data);
-            const { token } = response.data;
-            tokenValue = token;
-            setLoggedIn(true);
-
 
             // Reset form fields
-            setusername('');
+            setUser('');
             setPassword('');
         } catch (error) {
             // Handle error response
@@ -32,7 +27,7 @@ const Login = () => {
         }
 
 
-
+        console.log(await axios.get('http://127.0.0.1:8000/api/login/'))
     };
 
 
@@ -42,14 +37,14 @@ const Login = () => {
                 <h2 className="text-2xl font-bold mb-4">Login to Your Account</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
-                        <label htmlFor="username" className="block text-gray-700 font-bold mb-2">
+                        <label htmlFor="UserName" className="block text-gray-700 font-bold mb-2">
                             UserName
                         </label>
                         <input
-                            type="username"
+                            type="text"
                             id="username"
-                            value={username}
-                            onChange={(e) => setusername(e.target.value)}
+                            value={user}
+                            onChange={(e) => setUser(e.target.value)}
                             className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:border-purple-500"
                         />
                     </div>
@@ -81,13 +76,12 @@ const Login = () => {
 
                     <Links
                         key="Login"
-                        to={loggedIn ? "/Survey" : "/Survey"}
-                        // to="/Survey"
+                        to="/Survey"
+
                         className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600"
                     >
                         <button
                             type="submit"
-                            onClick={handleSubmit}
 
                         >
                             LOGIN
@@ -98,5 +92,5 @@ const Login = () => {
         </div>
     );
 };
-export { tokenValue };
+
 export default Login;

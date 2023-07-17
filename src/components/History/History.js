@@ -1,109 +1,31 @@
 import React from 'react';
-
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { tokenValue } from '../User/Login';
+// import Records from './Records';
+import { getSurveyData } from '../Questionnaire/Survey';
+import Links from '../Links';
 function History() {
-    const data = {
-        "id": 12,
-        "gender": 0,
-        "income_group": 0,
-        "sensing": 0.5714285714285714,
-        "introvert": 0.5714285714285714,
-        "Judging": 0.42857142857142855,
-        "Thinking": 0.7142857142857143,
-        "logical_intelligence": 2.8,
-        "Nature_intelligence": 1.2,
-        "Visual_intelligence": 2.8,
-        "Musical_intelligence": 2.6,
-        "Body_intelligence": 2.4,
-        "Interpersonal_intelligence": 2.8,
-        "Intrapersonal_intelligence": 3.8,
-        "Verbal_intelligence": 3.2,
-        "Existential_intelligence": 2.6,
-        "Engineering_Field1": "Computer and Information Systems Engineering",
-        "Engineering_Field2": "Medical Technology",
-        "Engineering_Field3": "Software Engineering",
-        "Engineering_Field4": "Civil Engineering",
-        "Engineering_Field5": "MBBS",
-        "Medical_Field1": "Mechanical Engineering",
-        "Medical_Field2": "Electrical Engineering",
-        "Medical_Field3": "Nutrition Sciences",
-        "button": 1.0,
-        "user": 6
-    };
-    const query = [
-        {
-            "Engineering_Field1": "0",
-            "Engineering_Field2": "0",
-            "Engineering_Field3": "0",
-            "Engineering_Field4": "0",
-            "Engineering_Field5": "0",
-            "Medical_Field1": "Biotechnology",
-            "Medical_Field2": "Nutrition Sciences",
-            "Medical_Field3": "D-Pharmacy",
-            "button": 1.0
-        },
-        {
-            "Engineering_Field1": "Electrical Engineering",
-            "Engineering_Field2": "Computer and Information Systems Engineering",
-            "Engineering_Field3": "Software Engineering",
-            "Engineering_Field4": "Civil Engineering",
-            "Engineering_Field5": "Mechanical Engineering",
-            "Medical_Field1": "0",
-            "Medical_Field2": "0",
-            "Medical_Field3": "0",
-            "button": 0.0
-        },
-        {
-            "Engineering_Field1": "Computer and Information Systems Engineering",
-            "Engineering_Field2": "Medical Technology",
-            "Engineering_Field3": "Software Engineering",
-            "Engineering_Field4": "Civil Engineering",
-            "Engineering_Field5": "MBBS",
-            "Medical_Field1": "Mechanical Engineering",
-            "Medical_Field2": "Electrical Engineering",
-            "Medical_Field3": "Nutrition Sciences",
-            "button": 2.0
-        },
-        {
-            "Engineering_Field1": "Computer and Information Systems Engineering",
-            "Engineering_Field2": "Medical Technology",
-            "Engineering_Field3": "Software Engineering",
-            "Engineering_Field4": "Civil Engineering",
-            "Engineering_Field5": "MBBS",
-            "Medical_Field1": "Mechanical Engineering",
-            "Medical_Field2": "Electrical Engineering",
-            "Medical_Field3": "Nutrition Sciences",
-            "button": 2.0
-        },
-        {
-            "Engineering_Field1": "Computer and Information Systems Engineering",
-            "Engineering_Field2": "Medical Technology",
-            "Engineering_Field3": "Software Engineering",
-            "Engineering_Field4": "Civil Engineering",
-            "Engineering_Field5": "MBBS",
-            "Medical_Field1": "Mechanical Engineering",
-            "Medical_Field2": "Electrical Engineering",
-            "Medical_Field3": "Nutrition Sciences",
-            "button": 2.0
-        }
-    ];
-    const showEngineeringFields = query.some(record => record.button === 0.0);
-    const showMedicalFields = query.some(record => record.button === 1.0);
-    const showBothFields = query.some(record => record.button === 2.0);
+
+
+    const data = getSurveyData();
+
+    const [OpenRecords, setOpenRecords] = useState(false);
     // Extracting engineering and medical fields from the data object
-    const engineeringFields = [
+    const engineeringFields = data ? [
         data.Engineering_Field1,
         data.Engineering_Field2,
         data.Engineering_Field3,
         data.Engineering_Field4,
         data.Engineering_Field5
-    ];
-    const medicalFields = [
+    ] : [];
+    const medicalFields = data ? [
         data.Medical_Field1,
         data.Medical_Field2,
         data.Medical_Field3
-    ];
+    ] : [];
 
-    const buttonValue = data.button;
+    const buttonValue = data ? data.button : null;
     let barsData = [];
 
     if (buttonValue === 0) {
@@ -162,82 +84,28 @@ function History() {
                         </div>
                     </div>
                 ))}<h1 className="text-pink-500 text-2xl font-bold mt-20">Attention:</h1>
-                <h2 className="text-purple-800 my-10"> Please note that the MBTI-MITestCareerTracker app is intended for informational and exploratory purposes only. The career recommendations provided are based on your MBTI and MI test results, but they should not be considered as definitive or absolute. It is important to remember that career choices are multifaceted and depend on various factors such as personal preferences, skills, values, and external circumstances. The app aims to provide insights and suggestions to assist you in your career exploration, but the final decision should be based on thorough research, self-reflection, and consultation with career professionals.</h2>
+                <h2 className="text-purple-800 my-10"> Please note that the AI based Career Mentor is based on MBTI & MI Test which is intended for informational and exploratory purposes only. The career recommendations provided are based on your MBTI and MI test results, but they should not be considered as definitive or absolute. It is important to remember that career choices are multifaceted and depend on various factors such as personal preferences, skills, values, and external circumstances. This platform aims to provide insights and suggestions to assist you in your career exploration, but the final decision should be based on thorough research, self-reflection, and consultation with career professionals.</h2>
             </div>
-            <div className="container mx-auto p-4 mt-40">
-                <h1 className="text-4xl font-bold mb-12">AI BASED CAREER MENTOR</h1>
-                <h2 className="text-2xl font-bold mb-8">Previous Records</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {query.map((record, index) => {
-                        const engineeringFields = [
-                            record.Engineering_Field1,
-                            record.Engineering_Field2,
-                            record.Engineering_Field3,
-                            record.Engineering_Field4,
-                            record.Engineering_Field5
-                        ];
-                        const medicalFields = [
-                            record.Medical_Field1,
-                            record.Medical_Field2,
-                            record.Medical_Field3
-                        ];
 
-                        const barsData = [];
-                        let fieldIndex = 1;
+            <Links
+                key="Login"
+                to={OpenRecords ? "/Record" : "/History"}
 
-                        if (showEngineeringFields || showBothFields) {
-                            engineeringFields.forEach((field, index) => {
-                                if (field != 0) {
-                                    barsData.push({
-                                        label: `${field}`,
-                                        percentage: 90 - index * 10
-                                    });
-                                    fieldIndex++;
-                                }
-                            });
-                        }
+                className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600"
+            ><button
+                type="button"
+                onClick={() => setOpenRecords(true)}
 
-                        if (showMedicalFields || showBothFields) {
-                            medicalFields.forEach((field, index) => {
-                                if (field != 0) {
-                                    barsData.push({
-                                        label: `${field} `,
-                                        percentage: 90 - index * 10
-                                    });
-                                    fieldIndex++;
-                                }
-                            });
-                        }
+            >View Records
+                </button>
 
-                        return (
-                            <div key={index}>
-                                <div className="bg-white rounded-lg shadow-md p-4">
-                                    <h3 className="text-lg font-bold mb-2">Record {index + 1}</h3>
-                                    {barsData.map((bar, index) => (
-                                        <div key={index} className="mb-4">
-                                            <div className="flex items-center">
-                                                <div className="w-48">{bar.label}</div>
-                                                <div className="bg-gray-200 h-4 flex-grow ml-4">
-                                                    <div
-                                                        className="bg-blue-500 h-full"
-                                                        style={{ width: `${bar.percentage}%` }}
-                                                    ></div>
-                                                </div>
-                                                <div className="ml-4">{bar.percentage}%</div>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
+            </Links>
+
         </div >
 
     );
-}
 
+}
 export { History };
 
 

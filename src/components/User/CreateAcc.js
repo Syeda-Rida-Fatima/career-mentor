@@ -21,20 +21,17 @@ const CreateAccount = () => {
         e.preventDefault();
 
         try {
-            const response = await (axios.post('http://127.0.0.1:8000/api/register/', {
-
-
+            const response = await axios.post('http://127.0.0.1:8000/api/register/', {
                 username: username,
-                password: password,
                 email: email,
+                password: password,
                 country: country,
                 city: city,
-
-
-            }));
+            });
 
             // Handle success response
             console.log(response.data);
+
 
             // Reset form fields
             setName('');
@@ -46,13 +43,14 @@ const CreateAccount = () => {
         } catch (error) {
             // Handle error response
             console.error(error);
+            setAccountCreated(false)
         }
     };
     return (
         <div className="flex  items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-300 to-pink-300 mt-20">
             <div className="bg-white shadow-lg rounded-lg p-8">
                 <h2 className="text-2xl font-bold mb-4">Create Account</h2>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} >
                     <div className="mb-4">
                         <label htmlFor="username" className="block text-gray-700 font-bold mb-2">
                             Name
@@ -123,7 +121,7 @@ const CreateAccount = () => {
                                 onClick={togglePasswordVisibility}
                             >
 
-                                {isPasswordVisible ? (
+                                {!isPasswordVisible ? (
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="none"
@@ -175,7 +173,7 @@ const CreateAccount = () => {
                         // to="/"
                         to={accountCreated ? "/CreateAccount" : "/"}
                         className="font-bold">
-                        <button type="submit" className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600">
+                        <button type="submit" onSubmit={handleSubmit} className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600">
                             CREATE ACCOUNT
                         </button>
                     </Link>

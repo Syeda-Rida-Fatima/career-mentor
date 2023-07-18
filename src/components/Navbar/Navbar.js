@@ -4,9 +4,9 @@ import Links from '../Links';
 function Navbar() {
     const centerLinks = [
         { label: 'Home', path: '/' },
-        { label: 'About Us', path: '/Navbar/TwoColumnSection' },
-        { label: 'Blogs', path: '/Navbar/BlogSection' },
-        { label: 'Contact Us', path: '/Navbar/LastSection' },
+        { label: 'About Us', path: '/About' },
+        { label: 'Blogs', path: '/BlogSection' },
+        { label: 'Contact Us', path: '/Contact' },
         // { label: 'profile', path: '/Profile' }
     ];
     const RightLinks = [

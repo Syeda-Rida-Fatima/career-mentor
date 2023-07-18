@@ -31,13 +31,13 @@ const App = () => {
         <Route path='/CreateAccount'>
           <CreateAccountPage />
         </Route>
-        <Route path='/Navbar/LastSection'>
+        <Route path='/Contact'>
           <ContactPage />
         </Route>
-        <Route path='/Navbar/TwoColumnSection'>
+        <Route path='/About'>
           <AboutPage />
         </Route>
-        <Route path='/Navbar/BlogSection'>
+        <Route path='/BlogSection'>
           <div>
             <BlogPage /></div>
         </Route>

@@ -8,9 +8,9 @@ import hero3 from "../../images/hero3.jpeg";
 function Section2() {
     return (
         <div >
-            <div className="max-w-48xl mx-auto  py-24 relative">
-                <div className="relative overflow-hidden">
-                    <div className="animation-container">
+            <div className="max-w-48xl mx-auto  pt-10 relative">
+                <div className="relative  overflow-hidden">
+                    <div className="animation-container ">
                         <img
                             src={hero1}
                             alt="Image 1"

@@ -47,7 +47,7 @@ const CreateAccount = () => {
         }
     };
     return (
-        <div className="flex  items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-300 to-pink-300 mt-20">
+        <div className="flex  items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-300 to-pink-300 mt-10">
             <div className="bg-white shadow-lg rounded-lg p-8">
                 <h2 className="text-2xl font-bold mb-4">Create Account</h2>
                 <form onSubmit={handleSubmit} >

@@ -17,7 +17,7 @@ function BlogSection(props) {
 
                         <Links
                             key="Blog"
-                            to='/Navbar/BlogSection'
+                            to='/BlogSection'
                             className="text-purple-500 font-bold"
                         >
                             Read More
@@ -31,7 +31,7 @@ function BlogSection(props) {
 
                         <Links
                             key="Blog"
-                            to='/Navbar/BlogSection'
+                            to='/BlogSection'
                             className="text-purple-500 font-bold"
                         >
                             Read More
@@ -44,7 +44,7 @@ function BlogSection(props) {
 
                         <Links
                             key="Blog"
-                            to='/Navbar/BlogSection'
+                            to='/BlogSection'
                             className="text-purple-500 font-bold"
                         >
                             Read More

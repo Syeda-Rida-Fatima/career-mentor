@@ -10,8 +10,11 @@ function Navbar() {
         // { label: 'profile', path: '/Profile' }
     ];
     const RightLinks = [
+
         { label: 'Login', path: '/Login' },
+
         { label: 'Create Account', path: '/CreateAccount' },
+        // { label: 'Logout', path: '/' },
     ]
 
     const renderedCenterLinks = centerLinks.map((centerlink) => {

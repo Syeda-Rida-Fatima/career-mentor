@@ -1,13 +1,21 @@
+
+
+import Confetti from 'react-confetti'
+
+
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { tokenValue } from '../User/Login';
 import axios from 'axios';
-function Records() {
+import { toast } from 'react-toastify';
+
+
+const Records = () => {
     const [records, setRecords] = useState([]);
     const showEngineeringFields = records.some(record => record.button === 0.0);
     const showMedicalFields = records.some(record => record.button === 1.0);
     const showBothFields = records.some(record => record.button === 2.0);
-
+    const { width, height } = [300, 50]
     useEffect(() => {
         handlerecords();
     }, []);
@@ -27,11 +35,16 @@ function Records() {
             setRecords(fetchedRecords);
         } catch (error) {
             console.error(error);
+            toast.error("Something went wrong. Hold on! we are checking")
         }
     };
     return (
 
-        <div className="container mx-auto p-4 mt-40">
+        <div className="container  mx-auto p-4 mt-40">
+            <Confetti
+                width={width}
+                height={height}
+            />
             <h1 className="text-4xl font-bold mb-12">AI BASED CAREER MENTOR</h1>
             <h2 className="text-2xl font-bold mb-8">Previous Records</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -52,49 +65,29 @@ function Records() {
                     const barsData = [];
 
 
-                    if (showEngineeringFields) {
-                        engineeringFields.forEach((field, index) => {
-                            if (field !== "0") {
-                                barsData.push({
-                                    label: `${field}`,
-                                    percentage: 90 - index * 10
-                                });
 
-                            }
-                        });
-                    }
+                    engineeringFields.forEach((field, index) => {
+                        if (field !== "0") {
+                            barsData.push({
+                                label: `${field}`,
+                                percentage: 90 - index * 10
+                            });
 
-                    if (showMedicalFields) {
-                        medicalFields.forEach((field, index) => {
-                            if (field !== "0") {
-                                barsData.push({
-                                    label: `${field} `,
-                                    percentage: 90 - index * 10
-                                });
+                        }
+                    });
 
-                            }
-                        });
-                    }
-                    if (showBothFields) {
-                        medicalFields.forEach((field, index) => {
-                            if (field !== "0") {
-                                barsData.push({
-                                    label: `${field} `,
-                                    percentage: 90 - index * 10
-                                });
 
-                            }
-                        });
-                        engineeringFields.forEach((field, index) => {
-                            if (field !== "0") {
-                                barsData.push({
-                                    label: `${field}`,
-                                    percentage: 90 - index * 10
-                                });
 
-                            }
-                        });
-                    }
+                    medicalFields.forEach((field, index) => {
+                        if (field !== "0") {
+                            barsData.push({
+                                label: `${field} `,
+                                percentage: 90 - index * 10
+                            });
+
+                        }
+                    });
+
 
                     return (
                         <div key={index}>

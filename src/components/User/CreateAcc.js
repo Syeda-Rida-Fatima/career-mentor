@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Link from '../Links';
-
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const CreateAccount = () => {
     const countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "AntiguaAndBarbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "BosniaAndHerzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "BurkinaFaso", "Burundi", "CaboVerde", "Cambodia", "Cameroon", "Canada", "CentralAfricanRepublic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "CostaRica", "Croatia", "Cuba", "Cyprus", "CzechRepublic", "Denmark", "Djibouti", "Dominica", "DominicanRepublic", "EastTimor", "Ecuador", "Egypt", "ElSalvador", "EquatorialGuinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "GuineaBissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "KoreaNorth", "KoreaSouth", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "MarshallIslands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "NewZealand", "Nicaragua", "Niger", "Nigeria", "NorthMacedonia", "Norway", "Oman", "Pakistan", "Palau", "Panama", "PapuaNewGuinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "SaintKittsAndNevis", "SaintLucia", "SaintVincentAndTheGrenadines", "Samoa", "SanMarino", "SaoTomeAndPrincipe", "SaudiArabia", "Senegal", "Serbia", "Seychelles", "SierraLeone", "Singapore", "Slovakia", "Slovenia", "SolomonIslands", "Somalia", "SouthAfrica", "SouthSudan", "Spain", "SriLanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "TrinidadAndTobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "UnitedArabEmirates", "UnitedKingdom", "UnitedStates", "Uruguay", "Uzbekistan", "Vanuatu", "VaticanCity", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"];
     const cities = ["Abidjan", "Abu Dhabi", "Abuja", "karachi", "Yaoundé", "Yerevan", "Zagreb", "Zürich"];
@@ -19,7 +20,7 @@ const CreateAccount = () => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        console.log(username, password)
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/register/', {
                 username: username,
@@ -32,25 +33,27 @@ const CreateAccount = () => {
             // Handle success response
             console.log(response.data);
 
-
+            toast.success("Sucessfully Signup")
             // Reset form fields
-            setName('');
-            setEmail('');
-            setCountry('');
-            setCity('');
-            setPassword('');
+
             setAccountCreated(true);
         } catch (error) {
             // Handle error response
             console.error(error);
+            toast.error("Signup failed. Please check your credentials")
             setAccountCreated(false)
         }
+        setName('');
+        setEmail('');
+        setCountry('');
+        setCity('');
+        setPassword('');
     };
     return (
         <div className="flex  items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-300 to-pink-300 mt-10">
             <div className="bg-white shadow-lg rounded-lg p-8">
                 <h2 className="text-2xl font-bold mb-4">Create Account</h2>
-                <form onSubmit={handleSubmit} >
+                <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <label htmlFor="username" className="block text-gray-700 font-bold mb-2">
                             Name
@@ -170,10 +173,9 @@ const CreateAccount = () => {
                     </div>
                     <Link
                         key="Create-Acc"
-                        // to="/"
-                        to={accountCreated ? "/CreateAccount" : "/"}
-                        className="font-bold">
-                        <button type="submit" onSubmit={handleSubmit} className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600">
+                        to={accountCreated ? "/" : "/CreateAccount"}
+                        className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600">
+                        <button type="submit">
                             CREATE ACCOUNT
                         </button>
                     </Link>
@@ -186,6 +188,7 @@ const CreateAccount = () => {
                     </p>
                 </form>
             </div>
+            <ToastContainer />
         </div>
     );
 };

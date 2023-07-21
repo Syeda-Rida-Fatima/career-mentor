@@ -766,7 +766,7 @@ function HomePage() {
             <Section1 />
             <TwoColumnSection />
             <BlogSection />
-            <LastSection />
+
 
         </div>
     );

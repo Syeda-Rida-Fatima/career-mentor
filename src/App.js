@@ -13,14 +13,13 @@ import SurveyPage from './Pages/SurveyPage';
 import ResultPage from './Pages/ResultPage';
 import LastSection from './components/Navbar/LastSection';
 import Records from './components/History/Records';
+
 const App = () => {
 
 
   return (
     <div>
       <Navbar />
-
-
       <div>
         <Route path='/'>
           <HomePage />

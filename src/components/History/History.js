@@ -1,14 +1,16 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { tokenValue } from '../User/Login';
+import { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 // import Records from './Records';
 import { getSurveyData } from '../Questionnaire/Survey';
+
 import Links from '../Links';
+
 function History() {
 
 
     const data = getSurveyData();
+
 
     const [OpenRecords, setOpenRecords] = useState(false);
     // Extracting engineering and medical fields from the data object
@@ -83,24 +85,30 @@ function History() {
                             <div className="ml-4">{bar.percentage}%</div>
                         </div>
                     </div>
-                ))}<h1 className="text-pink-500 text-2xl font-bold mt-20">Attention:</h1>
-                <h2 className="text-purple-800 my-10"> Please note that the AI based Career Mentor is based on MBTI & MI Test which is intended for informational and exploratory purposes only. The career recommendations provided are based on your MBTI and MI test results, but they should not be considered as definitive or absolute. It is important to remember that career choices are multifaceted and depend on various factors such as personal preferences, skills, values, and external circumstances. This platform aims to provide insights and suggestions to assist you in your career exploration, but the final decision should be based on thorough research, self-reflection, and consultation with career professionals.</h2>
+                ))}
+
+                <div className='bg-gray-200 px-2 '>
+                    <h1 className="text-pink-500 text-2xl font-bold mt-20">Attention:</h1>
+                    <h2 className="text-purple-800 pb-2 my-10"> Please note that the AI based Career Mentor is based on MBTI & MI Test which is intended for informational and exploratory purposes only. The career recommendations provided are based on your MBTI and MI test results, but they should not be considered as definitive or absolute. It is important to remember that career choices are multifaceted and depend on various factors such as personal preferences, skills, values, and external circumstances. This platform aims to provide insights and suggestions to assist you in your career exploration, but the final decision should be based on thorough research, self-reflection, and consultation with career professionals.</h2>
+                </div>  </div>
+            <div>
+
+                <Links
+                    key="history"
+                    to={OpenRecords ? "/Record" : "/History"}
+
+                    className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600"
+                ><button
+                    type="button"
+                    onClick={() => setOpenRecords(true)}
+
+                >View Records
+                    </button>
+
+                </Links>
+
             </div>
-
-            <Links
-                key="Login"
-                to={OpenRecords ? "/Record" : "/History"}
-
-                className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600"
-            ><button
-                type="button"
-                onClick={() => setOpenRecords(true)}
-
-            >View Records
-                </button>
-
-            </Links>
-
+            <ToastContainer />
         </div >
 
     );

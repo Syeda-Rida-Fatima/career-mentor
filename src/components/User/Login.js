@@ -1,29 +1,36 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Links from "../Links";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 let tokenValue = ''
 const Login = () => {
     const [username, setusername] = useState('');
     const [password, setPassword] = useState('');
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [disabled, setDisabled] = useState(false)
     function togglePasswordVisibility() {
         setIsPasswordVisible((prevState) => !prevState);
     }
-    const [loggedIn, setLoggedIn] = useState(false); // Track login state
-
+    // Track login state
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        setDisabled(true)
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/login/', {
                 username: username,
                 password: password,
             });
+            toast.success(
+                `Success! User ${response.data.user.username}
+                 has successfully signed in!`
+            );
             // Handle success response
             console.log(response.data);
-            const { token } = response.data;
+            const token = response.data.token;
             tokenValue = token;
+
             setLoggedIn(true);
 
 
@@ -33,6 +40,13 @@ const Login = () => {
         } catch (error) {
             // Handle error response
             console.error(error);
+            {
+                <div>
+                    <div class="text-orange-700 p-4" role="alert">
+                        <p class="font-bold">USER NOT FOUND</p>
+
+                    </div></div>
+            }
         }
 
 
@@ -41,7 +55,7 @@ const Login = () => {
 
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-purple-500  via--indigo-300 to-pink-300">
+        <div className="flex items-center justify-center  min-h-screen bg-gradient-to-r from-purple-500  via--indigo-300 to-pink-300">
             <div className="bg-white shadow-lg rounded-lg p-8">
                 <h2 className="text-2xl font-bold mb-4">Login to Your Account</h2>
                 <form onSubmit={handleSubmit}>
@@ -103,6 +117,7 @@ const Login = () => {
                                         </svg>
                                     )}
                                 </button>
+
                             </label></div>
                         <input
                             type={isPasswordVisible ? "text" : "password"}
@@ -112,6 +127,7 @@ const Login = () => {
                             className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:border-purple-500"
                         />
                     </div>
+
                     <p className="text-blue-500 mb-4">
                         Want to create an account?{' '}
                         <Links key="CREATE-ACC" to="/CreateAccount" className="font-bold">
@@ -126,23 +142,27 @@ const Login = () => {
                     </p>
 
 
-                    <Links
-                        key="Login"
-                        to={loggedIn ? "/Survey" : "/login"}
-                        // to="/Survey"
-                        className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600"
-                    >
-                        <button
-                            type="submit"
-                            onClick={handleSubmit}
 
+                    <button
+
+                        type="submit"
+
+                    >
+                        <Links
+                            key="Login"
+                            to={loggedIn ? "/Survey" : "/Login"}
+                            // to="/Survey"
+                            className={`bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600 ${disabled ? 'cursor-not-allowed' : ''}`}
                         >
-                            LOGIN
-                        </button>
-                    </Links>
+
+                            LOGIN    </Links>
+                    </button>
+
+
                 </form>
-            </div>
+            </div>  <ToastContainer />
         </div>
+
     );
 };
 export { tokenValue };

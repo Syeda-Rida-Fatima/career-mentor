@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from '../Links';
+import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios';
 import { tokenValue } from '../User/Login';
 let data = null;
@@ -13,7 +14,7 @@ export const getSurveyData = () => {
 };
 const Survey = ({ questions }) => {
     const [Myanswers, setMyAnswers] = useState({});
-    // const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+    const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
     const [selectedButton, setSelectedButton] = useState(null);
 
     const handleAnswer = (questionId, value) => {
@@ -44,79 +45,79 @@ const Survey = ({ questions }) => {
 
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/scores/', {
-                answers: {
 
-                    mbtiI_E_question1: 1,
-                    mbtiI_E_question2: 0,
-                    mbtiI_E_question3: 0,
-                    mbtiI_E_question4: 1,
-                    mbtiI_E_question5: 1,
-                    mbtiI_E_question6: 0,
-                    mbtiI_E_question7: 0,
-                    mbtiJ_P_question15: 1,
-                    mbtiJ_P_question16: 0,
-                    mbtiJ_P_question17: 0,
-                    mbtiJ_P_question18: 0,
-                    mbtiJ_P_question19: 1,
-                    mbtiJ_P_question20: 1,
-                    mbtiJ_P_question21: 1,
-                    mbtiS_N_question8: 1,
-                    mbtiS_N_question9: 1,
-                    mbtiS_N_question10: 0,
-                    mbtiS_N_question11: 1,
-                    mbtiS_N_question12: 1,
-                    mbtiS_N_question13: 1,
-                    mbtiS_N_question14: 1,
-                    mbtiT_F_question22: 1,
-                    mbtiT_F_question23: 0,
-                    mbtiT_F_question24: 0,
-                    mbtiT_F_question25: 0,
-                    mbtiT_F_question26: 1,
-                    mbtiT_F_question27: 1,
-                    mbtiT_F_question28: 1,
-                    mi_question1: 3,
-                    mi_question2: 5,
-                    mi_question3: 5,
-                    mi_question4: 5,
-                    mi_question5: 4,
-                    mi_question6: 3,
-                    mi_question7: 3,
-                    mi_question8: 3,
-                    mi_question9: 3,
-                    mi_question10: 3,
-                    mi_question11: 4,
-                    mi_question12: 5,
-                    mi_question13: 5,
-                    mi_question14: 4,
-                    mi_question15: 3,
-                    mi_question16: 3,
-                    mi_question17: 3,
-                    mi_question18: 2,
-                    mi_question19: 5,
-                    mi_question20: 5,
-                    mi_question21: 4,
-                    mi_question22: 3,
-                    mi_question23: 5,
-                    mi_question24: 4,
-                    mi_question25: 3,
-                    mi_question26: 2,
-                    mi_question27: 0,
-                    mi_question28: 5,
-                    mi_question29: 4,
-                    mi_question30: 4,
-                    mi_question31: 4,
-                    mi_question32: 3,
-                    mi_question33: 5,
-                    mi_question34: 4,
-                    mi_question35: 4,
-                    mi_question36: 4,
-                    options: 1,
-                    self_question1: 1,
-                    self_question2: 1,
-
-
+                answers:
+                {
+                    "mbti-I/E-question1": 1,
+                    "mbti-I/E-question2": 1,
+                    "mbti-I/E-question3": 0,
+                    "mbti-I/E-question4": 0,
+                    "mbti-I/E-question5": 1,
+                    "mbti-I/E-question6": 1,
+                    "mbti-I/E-question7": 0,
+                    "mbti-J/P-question15": 0,
+                    "mbti-J/P-question16": 1,
+                    "mbti-J/P-question17": 1,
+                    "mbti-J/P-question18": 0,
+                    "mbti-J/P-question19": 1,
+                    "mbti-J/P-question20": 1,
+                    "mbti-J/P-question21": 0,
+                    "mbti-S/N-question8": 1,
+                    "mbti-S/N-question9": 1,
+                    "mbti-S/N-question10": 0,
+                    "mbti-S/N-question11": 0,
+                    "mbti-S/N-question12": 1,
+                    "mbti-S/N-question13": 0,
+                    "mbti-S/N-question14": 0,
+                    "mbti-T/F-question22": 0,
+                    "mbti-T/F-question23": 0,
+                    "mbti-T/F-question24": 1,
+                    "mbti-T/F-question25": 1,
+                    "mbti-T/F-question26": 1,
+                    "mbti-T/F-question27": 1,
+                    "mbti-T/F-question28": 1,
+                    "mi-question1": 2,
+                    "mi-question2": 3,
+                    "mi-question3": 5,
+                    "mi-question4": 4,
+                    "mi-question5": 4,
+                    "mi-question6": 3,
+                    "mi-question7": 3,
+                    "mi-question8": 3,
+                    "mi-question9": 3,
+                    "mi-question10": 2,
+                    "mi-question11": 4,
+                    "mi-question12": 3,
+                    "mi-question13": 5,
+                    "mi-question14": 2,
+                    "mi-question15": 2,
+                    "mi-question16": 2,
+                    "mi-question17": 5,
+                    "mi-question18": 3,
+                    "mi-question19": 3,
+                    "mi-question20": 4,
+                    "mi-question21": 5,
+                    "mi-question22": 3,
+                    "mi-question23": 5,
+                    "mi-question24": 4,
+                    "mi-question25": 3,
+                    "mi-question26": 3,
+                    "mi-question27": 3,
+                    "mi-question28": 4,
+                    "mi-question29": 4,
+                    "mi-question30": 4,
+                    "mi-question31": 5,
+                    "mi-question32": 5,
+                    "mi-question33": 5,
+                    "mi-question34": 5,
+                    "mi-question35": 5,
+                    "mi-question36": 3,
+                    "options": 2.0,
+                    "self-question1": 1,
+                    "self-question2": 2
 
                 }
+
             }, {
                 headers: {
                     Authorization: `Token ${tokenValue}`,
@@ -127,11 +128,16 @@ const Survey = ({ questions }) => {
             // Handle success response
 
             const responseData = response.data;
+            toast.success('Wonderful! your answers have been processed in AI model')
             setSurveyData(responseData);
 
         }
         catch (error) {
-            console.error(error); // Handle error response
+            console.log(error)
+
+            toast.error(error?.request?.response?.detail)
+
+            // console.error(error); // Handle error response
         }
     };
 
@@ -142,10 +148,13 @@ const Survey = ({ questions }) => {
 
     const isAllQuestionsAnswered = Object.keys(Myanswers).length === questions.length;
 
-    const unansweredQuestions = questions
-        .filter((question) => !Myanswers.hasOwnProperty(question.id))
-        .map((question, index) => index + 1);
+    const getUnansweredQuestionNumbers = () => {
 
+        const unansweredIndices = questions
+            .filter((question) => !Myanswers.hasOwnProperty(question.key))
+            .map((question) => question.index);
+        return unansweredIndices.join(', ');
+    }
     return (
         <div className="container mx-auto p-4 mt-40">
 
@@ -162,7 +171,7 @@ const Survey = ({ questions }) => {
                 <button
                     type="button"
                     onClick={() => handleButtonSelection(0.0)}
-                    className={`bg-purple-500 hover:bg-purple-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded ${selectedButton === 0.0 ? 'bg-purple-700' : ''
+                    className={`bg-purple-500 hover:bg-pink-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded ${selectedButton === 0.0 ? 'bg-pink-700' : ''
                         }`}
                 >
                     Medical
@@ -171,7 +180,7 @@ const Survey = ({ questions }) => {
                 <button
                     type="button"
                     onClick={() => handleButtonSelection(1.0)}
-                    className={`bg-purple-500 hover:bg-purple-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded ${selectedButton === 1.0 ? 'bg-purple-700' : ''
+                    className={`bg-purple-500 hover:bg-pink-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded ${selectedButton === 1.0 ? 'bg-pink-700' : ''
                         }`}
                 >
                     Engineering
@@ -180,7 +189,7 @@ const Survey = ({ questions }) => {
                 <button
                     type="button"
                     onClick={() => handleButtonSelection(2.0)}
-                    className={`bg-purple-500 hover:bg-purple-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded ${selectedButton === 2.0 ? 'bg-purple-700' : ''
+                    className={`bg-purple-500 hover:bg-pink-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded ${selectedButton === 2.0 ? 'bg-pink-700' : ''
                         }`}
                 >
                     Either
@@ -189,7 +198,7 @@ const Survey = ({ questions }) => {
             <form onSubmit={handleSubmit}>
                 {questions.map((question, index) => (
                     <div
-                        key={question.id}
+                        key={index}
                         className="bg-purple-200 p-4 rounded-lg mb-8"
                         style={{ marginTop: index > 0 ? '-1rem' : '0' }}
                     >
@@ -200,7 +209,7 @@ const Survey = ({ questions }) => {
                             {question.answerOptions.map((option, optionIndex) => (
                                 <label
                                     key={optionIndex}
-                                    className={`flex items-center mr-4 mb-2 ${Myanswers[question.id] === optionIndex ? 'text-blue-500 font-bold' : ''
+                                    className={`flex items-center mr-4 mb-2 ${Myanswers[question.id] === optionIndex ? 'text-pink-500 font-bold' : ''
                                         }`}
                                 >
                                     <input
@@ -219,29 +228,30 @@ const Survey = ({ questions }) => {
                 ))}
 
 
-                <Link
+
+                <button
+                    type="submit"
+                    onClick={handleSubmit}
+                    //  disabled={!isAllQuestionsAnswered}
+                    className="bg-purple-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded"
+                > <Link
                     key="submit"
                     to='/History'  >
-                    <button
-                        type="submit"
-                        onClick={handleSubmit}
-                        //  disabled={!isAllQuestionsAnswered}
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                    >
                         Submit
 
+                    </Link>
 
+                </button>
 
-                    </button>
-                </Link>
 
                 {/* Display unanswered question numbers */}
                 {!isAllQuestionsAnswered && (
                     <p className="text-red-500 mt-4">
-                        Please answer the following question(s): {unansweredQuestions.join(', ')}
+                        Remaining question count(s): {getUnansweredQuestionNumbers()}
                     </p>
                 )}
             </form>
+            <ToastContainer />
         </div>
     );
 };

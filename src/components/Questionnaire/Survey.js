@@ -3,6 +3,7 @@ import Link from '../Links';
 import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios';
 import { tokenValue } from '../User/Login';
+import { dummy_answers } from '../../data/dummy-response';
 let data = null;
 
 export const setSurveyData = (responseData) => {
@@ -46,77 +47,7 @@ const Survey = ({ questions }) => {
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/scores/', {
 
-                answers:
-                {
-                    "mbti-I/E-question1": 1,
-                    "mbti-I/E-question2": 1,
-                    "mbti-I/E-question3": 0,
-                    "mbti-I/E-question4": 0,
-                    "mbti-I/E-question5": 1,
-                    "mbti-I/E-question6": 1,
-                    "mbti-I/E-question7": 0,
-                    "mbti-J/P-question15": 0,
-                    "mbti-J/P-question16": 1,
-                    "mbti-J/P-question17": 1,
-                    "mbti-J/P-question18": 0,
-                    "mbti-J/P-question19": 1,
-                    "mbti-J/P-question20": 1,
-                    "mbti-J/P-question21": 0,
-                    "mbti-S/N-question8": 1,
-                    "mbti-S/N-question9": 1,
-                    "mbti-S/N-question10": 0,
-                    "mbti-S/N-question11": 0,
-                    "mbti-S/N-question12": 1,
-                    "mbti-S/N-question13": 0,
-                    "mbti-S/N-question14": 0,
-                    "mbti-T/F-question22": 0,
-                    "mbti-T/F-question23": 0,
-                    "mbti-T/F-question24": 1,
-                    "mbti-T/F-question25": 1,
-                    "mbti-T/F-question26": 1,
-                    "mbti-T/F-question27": 1,
-                    "mbti-T/F-question28": 1,
-                    "mi-question1": 2,
-                    "mi-question2": 3,
-                    "mi-question3": 5,
-                    "mi-question4": 4,
-                    "mi-question5": 4,
-                    "mi-question6": 3,
-                    "mi-question7": 3,
-                    "mi-question8": 3,
-                    "mi-question9": 3,
-                    "mi-question10": 2,
-                    "mi-question11": 4,
-                    "mi-question12": 3,
-                    "mi-question13": 5,
-                    "mi-question14": 2,
-                    "mi-question15": 2,
-                    "mi-question16": 2,
-                    "mi-question17": 5,
-                    "mi-question18": 3,
-                    "mi-question19": 3,
-                    "mi-question20": 4,
-                    "mi-question21": 5,
-                    "mi-question22": 3,
-                    "mi-question23": 5,
-                    "mi-question24": 4,
-                    "mi-question25": 3,
-                    "mi-question26": 3,
-                    "mi-question27": 3,
-                    "mi-question28": 4,
-                    "mi-question29": 4,
-                    "mi-question30": 4,
-                    "mi-question31": 5,
-                    "mi-question32": 5,
-                    "mi-question33": 5,
-                    "mi-question34": 5,
-                    "mi-question35": 5,
-                    "mi-question36": 3,
-                    "options": 2.0,
-                    "self-question1": 1,
-                    "self-question2": 2
-
-                }
+                answers: { dummy_answers }
 
             }, {
                 headers: {
@@ -151,9 +82,10 @@ const Survey = ({ questions }) => {
     const getUnansweredQuestionNumbers = () => {
 
         const unansweredIndices = questions
-            .filter((question) => !Myanswers.hasOwnProperty(question.key))
-            .map((question) => question.index);
-        return unansweredIndices.join(', ');
+            .filter((question) => !Myanswers.hasOwnProperty(question.id))
+            .map((question) => question.id);
+        console.log(unansweredIndices)
+        return unansweredIndices;
     }
     return (
         <div className="container mx-auto p-4 mt-40">
@@ -228,26 +160,26 @@ const Survey = ({ questions }) => {
                 ))}
 
 
-
-                <button
-                    type="submit"
-                    onClick={handleSubmit}
-                    //  disabled={!isAllQuestionsAnswered}
-                    className="bg-purple-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded"
-                > <Link
+                <Link
                     key="submit"
                     to='/History'  >
+                    <button
+                        type="submit"
+                        onClick={handleSubmit}
+                        disabled={!isAllQuestionsAnswered}
+                        className="bg-purple-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded"
+                    >
                         Submit
 
-                    </Link>
 
-                </button>
 
+                    </button>
+                </Link>
 
                 {/* Display unanswered question numbers */}
                 {!isAllQuestionsAnswered && (
                     <p className="text-red-500 mt-4">
-                        Remaining question count(s): {getUnansweredQuestionNumbers()}
+                        Remaining question number(s): {getUnansweredQuestionNumbers().join(', ')}
                     </p>
                 )}
             </form>

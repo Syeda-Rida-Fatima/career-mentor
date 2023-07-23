@@ -58,7 +58,7 @@ const Login = () => {
         <div className="flex items-center justify-center  min-h-screen bg-gradient-to-r from-purple-500  via--indigo-300 to-pink-300">
             <div className="bg-white shadow-lg rounded-lg p-8">
                 <h2 className="text-2xl font-bold mb-4">Login to Your Account</h2>
-                <form onSubmit={handleSubmit}>
+                <div >
                     <div className="mb-4">
                         <label htmlFor="username" className="block text-gray-700 font-bold mb-2">
                             UserName
@@ -142,24 +142,25 @@ const Login = () => {
                     </p>
 
 
-
-                    <button
-
-                        type="submit"
+                    <Links
+                        key="Login"
+                        to={loggedIn ? "/Survey" : "/Login"}
+                    // to="/Survey"
 
                     >
-                        <Links
-                            key="Login"
-                            to={loggedIn ? "/Survey" : "/Login"}
-                            // to="/Survey"
+                        <button
+
+                            type="submit"
+                            onClick={handleSubmit}
                             className={`bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600 ${disabled ? 'cursor-not-allowed' : ''}`}
                         >
 
-                            LOGIN    </Links>
-                    </button>
 
+                            LOGIN   </button>
 
-                </form>
+                    </Links>
+
+                </div>
             </div>  <ToastContainer />
         </div>
 

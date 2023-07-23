@@ -53,7 +53,7 @@ const CreateAccount = () => {
         <div className="flex  items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-300 to-pink-300 mt-10">
             <div className="bg-white shadow-lg rounded-lg p-8">
                 <h2 className="text-2xl font-bold mb-4">Create Account</h2>
-                <form onSubmit={handleSubmit}>
+                <div >
                     <div className="mb-4">
                         <label htmlFor="username" className="block text-gray-700 font-bold mb-2">
                             Name
@@ -175,7 +175,8 @@ const CreateAccount = () => {
                         key="Create-Acc"
                         to={accountCreated ? "/" : "/CreateAccount"}
                         className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600">
-                        <button type="submit">
+                        <button type="submit"
+                            onClick={handleSubmit}>
                             CREATE ACCOUNT
                         </button>
                     </Link>
@@ -186,7 +187,7 @@ const CreateAccount = () => {
                             LOGIN
                         </Link>
                     </p>
-                </form>
+                </div>
             </div>
             <ToastContainer />
         </div>

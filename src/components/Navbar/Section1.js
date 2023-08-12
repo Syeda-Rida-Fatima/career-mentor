@@ -1,18 +1,18 @@
 import React from 'react';
-import A1 from '../../images/about1.svg';
-import A2 from '../../images/about2.svg';
-import A3 from '../../images/about3.jpg';
+import A1 from '../../images/about1.jpeg';
+import A2 from '../../images/about2.jpeg';
+import A3 from '../../images/about3.jpeg';
 
 function Section1() {
 
     return (
-        <section className="flex-row  bg-gradient-to-r pt-10 from-pink-100 via-indigo-100 to-purple-100 justify-center  ">
+        <section className="flex-row bg-gradient-to-r pt-10 from-pink-100 via-indigo-100 to-purple-100 justify-center  ">
             <div className="flex w-35  place-items-center p-10 justify-center space-x-8">
-                <div className=" flex-column min-w-100 justify-center bg-white p-4 rounded shadow hover:shadow-lg">
+                <div className=" flex-column max-w-2 justify-center bg-white p-4 rounded shadow hover:shadow-lg">
                     <img
                         src={A1}// Replace with your image source
                         alt="Image 1"
-                        className=" w-auto h-auto object-cover p-4 rounded"
+                        className=" w-30 h-30 object-cover p-4 rounded"
                     />
                     <div className=" text-center mt-4">
                         <h3 className="text-lg font-bold">Assess Yourself</h3>
@@ -23,22 +23,21 @@ function Section1() {
                     <img
                         src={A2} // Replace with your image source
                         alt="Image 2"
-                        className="flex w-auto justify-center h-auto align-items justify-content object-cover p-4 rounded"
+                        className=" w-50 justify-center h-auto align-items justify-content object-cover p-4 rounded"
                     />
                     <div className="  text-center mt-4">
-                        <h3 className="text-lg flex justify-center  font-bold">Choose Your
-                            Career</h3>
+                        <h3 className="text-lg flex  justify-center font-bold">Choose Your Career</h3>
 
                     </div>
                 </div>
                 <div className=" bg-white p-4  justify-center rounded shadow hover:shadow-lg">
                     <div className='items-stretch'><img
-                        src={A1} // Replace with your image source
+                        src={A3} // Replace with your image source
                         alt="Image 3"
-                        className="w-auto h-auto justify-center  object-cover p-4 rounded"
+                        className=" w-50 justify-center h-auto align-items justify-content object-cover p-4 rounded"
                     /></div>
                     <div className="text-center items-stretch mt-4">
-                        <h3 className="text-lg   font-bold">Check Your Personality</h3>
+                        <h3 className="text-lg flex  justify-center font-bold">Check Your Personality</h3>
 
                     </div>
                 </div>

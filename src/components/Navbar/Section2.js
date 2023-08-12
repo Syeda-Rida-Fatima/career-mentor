@@ -2,9 +2,9 @@
 
 import React from 'react';
 import Links from '../Links';
-import hero1 from "../../images/hero1.jpeg";
-import hero2 from "../../images/hero2.jpeg";
-import hero3 from "../../images/hero3.jpeg";
+import hero1 from "../../images/hero1.jpg";
+import hero2 from "../../images/hero2.jpg";
+import hero3 from "../../images/hero3.jpg";
 function Section2() {
     return (
         <div >

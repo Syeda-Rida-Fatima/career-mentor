@@ -5,7 +5,6 @@ import axios from 'axios';
 import { tokenValue } from '../User/Login';
 import { dummy_answers } from '../../data/dummy-response';
 let data = null;
-
 export const setSurveyData = (responseData) => {
     data = responseData;
 };
@@ -47,7 +46,7 @@ const Survey = ({ questions }) => {
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/scores/', {
 
-                answers: { dummy_answers }
+                answers
 
             }, {
                 headers: {
@@ -84,8 +83,8 @@ const Survey = ({ questions }) => {
         const unansweredIndices = questions
             .filter((question) => !Myanswers.hasOwnProperty(question.id))
             .map((question) => question.id);
-        console.log(unansweredIndices)
-        return unansweredIndices;
+
+        return unansweredIndices.length;
     }
     return (
         <div className="container mx-auto p-4 mt-40">
@@ -140,7 +139,7 @@ const Survey = ({ questions }) => {
                         <div className="flex flex-wrap">
                             {question.answerOptions.map((option, optionIndex) => (
                                 <label
-                                    key={optionIndex}
+                                    key={index}
                                     className={`flex items-center mr-4 mb-2 ${Myanswers[question.id] === optionIndex ? 'text-pink-500 font-bold' : ''
                                         }`}
                                 >
@@ -166,7 +165,7 @@ const Survey = ({ questions }) => {
                     <button
                         type="submit"
                         onClick={handleSubmit}
-                        disabled={!isAllQuestionsAnswered}
+                        // disabled={!isAllQuestionsAnswered}
                         className="bg-purple-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded"
                     >
                         Submit
@@ -179,7 +178,7 @@ const Survey = ({ questions }) => {
                 {/* Display unanswered question numbers */}
                 {!isAllQuestionsAnswered && (
                     <p className="text-red-500 mt-4">
-                        Remaining question number(s): {getUnansweredQuestionNumbers().join(', ')}
+                        Remaining question count(s): {getUnansweredQuestionNumbers()}
                     </p>
                 )}
             </form>

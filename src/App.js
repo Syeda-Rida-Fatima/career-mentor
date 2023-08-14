@@ -13,6 +13,7 @@ import SurveyPage from './Pages/SurveyPage';
 import ResultPage from './Pages/ResultPage';
 import LastSection from './components/Navbar/LastSection';
 import Records from './components/History/Records';
+import Logout from './components/User/Logout';
 
 const App = () => {
 
@@ -21,6 +22,11 @@ const App = () => {
     <div>
       <Navbar />
       <div>
+        <div className="py-4">
+          <Logout />
+
+        </div>
+
         <Route path='/'>
           <HomePage />
         </Route>

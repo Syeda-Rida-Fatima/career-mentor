@@ -1,6 +1,6 @@
 import React from 'react';
 import { TiSocialFacebook, TiSocialInstagram, TiSocialLinkedin, TiSocialTwitter, TiSocialYoutube } from "react-icons/ti";
-import Logo from '../../images/logo.png';
+import Logo from '../../images/logo2-r.png';
 
 function LastSection(props) {
     return (
@@ -8,7 +8,7 @@ function LastSection(props) {
             <div className="max-w-4xl mx-auto flex flex-col items-center justify-center">
                 <div className="flex items-center mb-4">
                     <div className="text-4xl font-bold">CAREER MENTOR</div>
-                    <img src={Logo} alt="Logo" className="ml-4" />
+                    <img src={Logo} alt="Logo" className="ml-4 h-14 w-14 " />
                 </div>
                 <div className="flex justify-center  mb-4">
                     <a href="/" className="block mx-4  items-center">

@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../images/logo.png';
+import Logo from '../../images/logo2-r.png';
 import Links from '../Links';
 function Navbar() {
     const centerLinks = [
@@ -53,7 +53,7 @@ function Navbar() {
                 <img
                     src={Logo}// Replace with your logo image source
                     alt="Logo"
-                    className="ml-2 h-8"
+                    className="ml-2 h-14"
                 />
             </div>
             <div className='font-bold '>

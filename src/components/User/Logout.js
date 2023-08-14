@@ -1,42 +1,44 @@
-// import React from 'react';
-// import { tokenValue } from './Login';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// const Logout = () => {
-//   const handleLogout = async () => {
+import React from 'react';
+import Link from '../Links';
+import { tokenValue } from './Login';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+const Logout = () => {
+    const handleLogout = async () => {
+        try {
+            tokenValue = ''
 
-//     try {
-//       const response = await fetch('http://127.0.0.1:8000/api/login', {
-//         method: 'POST',
-//         headers: {
-//           Authorization: { tokenValue },
-//         },
-//       });
 
-//       if (response.ok) {
-//         toast.success('Logged out successfully!');
-//         localStorage.removeItem('token');
-//         tokenValue = 'null'
-//       } else {
-//         console.error('Logout failed');
-//         toast.error('Logout failed');
-//       }
-//     } catch (error) {
-//       console.error('Error occurred during logout:', error);
-//     }
-//   };
-//   return (
-//     <div>
-//       <button
-//         className="fixed top-20 right-20 bg-purple-500 hover:bg-blue-600 text-white font-bold py-4 px-4 rounded focus:outline-none"
-//         onClick={handleLogout}
-//       >
-//         Logout
-//       </button>
+            if (!tokenValue) {
+                toast.success('Logged out successfully!');
+                localStorage.removeItem('token');
+                tokenValue = 'null'
+            } else {
+                console.error('Logout failed');
+                toast.error('Logout failed');
+            }
+        } catch (tokenValue) {
+            console.error('Error occurred during logout:');
+        }
+    };
+    return (
+        <div>
+            <Link
+                key="Logout"
+                to="/"
 
-//       <ToastContainer />
-//     </div>
-//   );
-// };
 
-// export default Logout;
+            >
+                <button
+                    className="fixed top-20 right-1 bg-purple-500 hover:bg-pink-600 text-white font-bold py-8 my-2 px-4 mx-0 rounded-full focus:outline-none"
+                    onClick={handleLogout}
+                >
+                    Logout
+                </button>
+            </Link>
+            <ToastContainer />
+        </div>
+    );
+};
+
+export default Logout;

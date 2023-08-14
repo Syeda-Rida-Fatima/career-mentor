@@ -45,8 +45,10 @@ const Records = () => {
                 width={width}
                 height={height}
             />
-            <h1 className="text-4xl font-bold mb-12">AI BASED CAREER MENTOR</h1>
-            <h2 className="text-2xl font-bold mb-8">Previous Records</h2>
+            <h1 className="text-4xl text-pink-700 font-bold ">THE CAREER MENTOR </h1>
+            <h2 className="text-2xl justify-between text-purple-700 font-bold mb-12">AN ARTIFICIAL INTELLIGENCE BASED CAREER COUNSELLOR</h2>
+
+            <h2 className="text-5xl font-bold mb-8">Previous Records</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {records.map((record, index) => {
                     const engineeringFields = [

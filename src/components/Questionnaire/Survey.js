@@ -46,7 +46,75 @@ const Survey = ({ questions }) => {
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/scores/', {
 
-                answers
+                answers: {
+                    "mbti-I/E-question1": 1,
+                    "mbti-I/E-question2": 0,
+                    "mbti-I/E-question3": 1,
+                    "mbti-I/E-question4": 0,
+                    "mbti-I/E-question5": 1,
+                    "mbti-I/E-question6": 0,
+                    "mbti-I/E-question7": 1,
+                    "mbti-J/P-question15": 1,
+                    "mbti-J/P-question16": 1,
+                    "mbti-J/P-question17": 1,
+                    "mbti-J/P-question18": 0,
+                    "mbti-J/P-question19": 1,
+                    "mbti-J/P-question20": 1,
+                    "mbti-J/P-question21": 1,
+                    "mbti-S/N-question8": 0,
+                    "mbti-S/N-question9": 0,
+                    "mbti-S/N-question10": 0,
+                    "mbti-S/N-question11": 1,
+                    "mbti-S/N-question12": 1,
+                    "mbti-S/N-question13": 0,
+                    "mbti-S/N-question14": 0,
+                    "mbti-T/F-question22": 0,
+                    "mbti-T/F-question23": 0,
+                    "mbti-T/F-question24": 1,
+                    "mbti-T/F-question25": 1,
+                    "mbti-T/F-question26": 1,
+                    "mbti-T/F-question27": 1,
+                    "mbti-T/F-question28": 0,
+                    "mi-question1": 3,
+                    "mi-question2": 3,
+                    "mi-question3": 5,
+                    "mi-question4": 4,
+                    "mi-question5": 3,
+                    "mi-question6": 0,
+                    "mi-question7": 2,
+                    "mi-question8": 3,
+                    "mi-question9": 4,
+                    "mi-question10": 3,
+                    "mi-question11": 2,
+                    "mi-question12": 3,
+                    "mi-question13": 3,
+                    "mi-question14": 5,
+                    "mi-question15": 4,
+                    "mi-question16": 4,
+                    "mi-question17": 4,
+                    "mi-question18": 3,
+                    "mi-question19": 3,
+                    "mi-question20": 2,
+                    "mi-question21": 2,
+                    "mi-question22": 2,
+                    "mi-question23": 3,
+                    "mi-question24": 4,
+                    "mi-question25": 5,
+                    "mi-question26": 4,
+                    "mi-question27": 3,
+                    "mi-question28": 2,
+                    "mi-question29": 2,
+                    "mi-question30": 3,
+                    "mi-question31": 3,
+                    "mi-question32": 3,
+                    "mi-question33": 3,
+                    "mi-question34": 4,
+                    "mi-question35": 4,
+                    "mi-question36": 5,
+                    "options": 0,
+                    "self-question1": 1,
+                    "self-question2": 1
+                }
 
             }, {
                 headers: {
@@ -89,7 +157,9 @@ const Survey = ({ questions }) => {
     return (
         <div className="container mx-auto p-4 mt-40">
 
-            <h1 className="text-4xl font-bold mb-12">AI BASED CAREER MENTOR</h1>
+            <h1 className="text-4xl font-bold ">THE CAREER MENTOR</h1>
+            <h2 className="text-2xl justify-between text-pink-700 font-bold mb-12">AN ARTIFICIAL INTELLIGENCE BASED CAREER COUNSELLOR</h2>
+
             <div className="bg-purple-200 p-4  rounded-lg mb-8">
                 <h1 className='text-2xl font-bold text-black-500'>Note: </h1>
                 <ul><li>Please choose the answer that best describes you</li>
@@ -102,7 +172,7 @@ const Survey = ({ questions }) => {
                 <button
                     type="button"
                     onClick={() => handleButtonSelection(0.0)}
-                    className={`bg-purple-500 hover:bg-pink-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded ${selectedButton === 0.0 ? 'bg-pink-700' : ''
+                    className={`bg-${selectedButton === 0.0 ? 'pink-700' : 'purple-500'} hover:bg-pink-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded 
                         }`}
                 >
                     Medical
@@ -111,7 +181,7 @@ const Survey = ({ questions }) => {
                 <button
                     type="button"
                     onClick={() => handleButtonSelection(1.0)}
-                    className={`bg-purple-500 hover:bg-pink-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded ${selectedButton === 1.0 ? 'bg-pink-700' : ''
+                    className={`bg-${selectedButton === 1.0 ? 'pink-700' : 'purple-500'} hover:bg-pink-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded 
                         }`}
                 >
                     Engineering
@@ -120,7 +190,7 @@ const Survey = ({ questions }) => {
                 <button
                     type="button"
                     onClick={() => handleButtonSelection(2.0)}
-                    className={`bg-purple-500 hover:bg-pink-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded ${selectedButton === 2.0 ? 'bg-pink-700' : ''
+                    className={`bg-${selectedButton === 2.0 ? 'pink-700' : 'purple-500'} hover:bg-pink-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded 
                         }`}
                 >
                     Either

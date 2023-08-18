@@ -25,7 +25,7 @@ function BlogSection(props) {
                     </div>
                     <div className="bg-white rounded shadow p-6 overflow-y-auto max-h-64">
                         <h3 className="text-lg text-pink-700 font-bold mb-4">What does the future of Career Counselling look and feel like?</h3>
-                        <p className="text-gray-600 mb-4">
+                        <p className="text-gray-600  mb-4">
                             The future and present of career counseling are here. We can take inspiration from Finland's strong education system and give autonomy to our counselors and teachers so that they can adapt their services to the needs of students. The World Development Report states that a strong system to promote innovative learning is micro-level, systemic knowledge interventions. This includes new pedagogical techniques, digital technologies that enhance learning, and strategies for keeping all stakeholders motivated.
                         </p>
 

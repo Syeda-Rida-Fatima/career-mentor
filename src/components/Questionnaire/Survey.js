@@ -46,8 +46,9 @@ const Survey = ({ questions }) => {
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/scores/', {
 
-                answers: {
-                    "mbti-I/E-question1": 1,
+                answers
+                    : {
+                        "mbti-I/E-question1": 1,
                     "mbti-I/E-question2": 0,
                     "mbti-I/E-question3": 1,
                     "mbti-I/E-question4": 0,
@@ -171,8 +172,8 @@ const Survey = ({ questions }) => {
             <div className="flex">
                 <button
                     type="button"
-                    onClick={() => handleButtonSelection(0.0)}
-                    className={`bg-${selectedButton === 0.0 ? 'pink-700' : 'purple-500'} hover:bg-pink-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded 
+                    onClick={() => handleButtonSelection(1.0)}
+                    className={`bg-purple-500 ${selectedButton === 1.0 ? 'bg-pink-700 text-black-500' : 'purple-500'} hover:bg-pink-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded 
                         }`}
                 >
                     Medical
@@ -180,8 +181,8 @@ const Survey = ({ questions }) => {
 
                 <button
                     type="button"
-                    onClick={() => handleButtonSelection(1.0)}
-                    className={`bg-${selectedButton === 1.0 ? 'pink-700' : 'purple-500'} hover:bg-pink-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded 
+                    onClick={() => handleButtonSelection(0.0)}
+                    className={`bg-${selectedButton === 0.0 ? 'pink-700' : 'purple-500'} hover:bg-pink-700 mt-4 mr-8 mb-8 text-white font-bold py-2 px-4 rounded 
                         }`}
                 >
                     Engineering
